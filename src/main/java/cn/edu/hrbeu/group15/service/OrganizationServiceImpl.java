@@ -27,4 +27,29 @@ public class OrganizationServiceImpl implements OrganizationService {
         return organizationMapper.getById(id);
     }
 
+    @Override
+    public int insertOneOrgnization(Organization organization) {
+        return organizationMapper.insertOneOrganization(organization);
+    }
+
+    @Override
+    public int updateOrgNo(Organization organization) {
+        return organizationMapper.updateOrgNo(organization);
+    }
+
+    @Override
+    public String getOrgNameById(Integer id) {
+        return organizationMapper.getOrgNameById(id);
+    }
+
+    @Override
+    public List<String> getAllOrgName() {
+        return organizationMapper.getAllOrgName();
+    }
+
+    @Override
+    public Integer getIdByOrgName(String orgName) {
+        return organizationMapper.getIdByOrgName(orgName);
+    }
+
 }

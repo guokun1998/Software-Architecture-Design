@@ -17,10 +17,10 @@
 <div class="content-pages-wrap">
     <div class="commonTitle"><h2>&gt;&gt; <a href="institution-list.html">机构管理</a> - 机构创建</h2></div>
     <table border="0" cellspacing="1" cellpadding="0" class="commonTable">
-        <form id="institutionCreat" name="institutionCreat" action="/part01/content/institution/creat.html" method="post">
+        <form id="institutionCreat" name="institutionCreat" th:action="@{'/part01/content/institution/change.html?orgId='+${organization.id}}">
             <tr>
                 <td align="right"><span class="required">*</span>机构编码：</td>
-                <td align="left"><input name="orgNo" type="text" class="inputTextMiddle" id="textfield" /></td>
+                <td align="left"><input name="orgNo" type="text" class="inputTextMiddle" th:value="${organization.orgNo}" id="textfield" /></td>
                 <td align="right"><span class="required">*</span>机构代码：</td>
                 <td align="left" colspan="3"><input name="orgCode" type="text" class="inputTextMiddle" id="textfield" />(<span class="required">代码格式:XXXXXXXX-X</span>)</td>
             </tr>

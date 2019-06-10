@@ -1,98 +1,98 @@
 package cn.edu.hrbeu.group15.po;
 
 public class Orgattached {
-  
+
     private Integer id;
 
-   
+
     private Integer orgId;
 
-    
+
     private String orgName;
 
     private String orgNo;
 
-    
+
     private String orgCode;
 
-    
+
     private Integer onworkerNum;
 
-    
+
     private Integer supervisorNum;
 
-   
+
     private Short zbbNum;
 
-    
+
     private String ifPublicManage;
 
-    
+
     private Integer retireNum;
 
-    
+
     private Short officeBuildArea;
 
-    
+
     private String buildingOwnerShip;
 
-    
-    private Short officeBuildIngarea;
+
+    private Short officeBuildingarea;
 
     private Short businessDivCount;
 
-    private Short fundIvCount;
+    private Short funDivCount;
 
-    
+
     private Short orgCount;
 
     private Integer equ3Count;
 
-    
+
     private Integer equ2Count;
 
-   
+
     private Integer equ1Count;
 
-   
+
     private Short busCount;
 
- 
+
     private Short rapidTestVehicleCount;
 
-    
+
     private Short motorCount;
 
     private Short cameraCount;
 
-   
+
     private Short videoCount;
 
-    
-    private Short copyCatNum;
 
-  
+    private Short copycatNum;
+
+
     private Short computerNum;
 
-   
-    private Short notePadNum;
 
-   
+    private Short notepadNum;
+
+
     private Short serverCount;
 
-    
+
     private Short pbxCount;
 
-    
+
     private Short faxCount;
 
-    
+
     private Short ohpCount;
 
-    
+
     private String yearLy;
 
-   
+
     private Short vrCount;
 
     public Integer getId() {
@@ -177,13 +177,7 @@ public class Orgattached {
         this.buildingOwnerShip = buildingOwnerShip;
     }
 
-    public Short getOfficeBuildIngarea() {
-        return officeBuildIngarea;
-    }
 
-    public void setOfficeBuildIngarea(Short officeBuildIngarea) {
-        this.officeBuildIngarea = officeBuildIngarea;
-    }
 
     public Short getBusinessDivCount() {
         return businessDivCount;
@@ -193,13 +187,7 @@ public class Orgattached {
         this.businessDivCount = businessDivCount;
     }
 
-    public Short getFundIvCount() {
-        return fundIvCount;
-    }
 
-    public void setFundIvCount(Short fundIvCount) {
-        this.fundIvCount = fundIvCount;
-    }
 
     public Short getOrgCount() {
         return orgCount;
@@ -273,13 +261,7 @@ public class Orgattached {
         this.videoCount = videoCount;
     }
 
-    public Short getCopyCatNum() {
-        return copyCatNum;
-    }
 
-    public void setCopyCatNum(Short copyCatNum) {
-        this.copyCatNum = copyCatNum;
-    }
 
     public Short getComputerNum() {
         return computerNum;
@@ -289,13 +271,7 @@ public class Orgattached {
         this.computerNum = computerNum;
     }
 
-    public Short getNotePadNum() {
-        return notePadNum;
-    }
 
-    public void setNotePadNum(Short notePadNum) {
-        this.notePadNum = notePadNum;
-    }
 
     public Short getServerCount() {
         return serverCount;
@@ -359,5 +335,80 @@ public class Orgattached {
 
     public void setSupervisorNum(Integer supervisorNum) {
         this.supervisorNum = supervisorNum;
+    }
+
+
+
+    public Short getOfficeBuildingarea() {
+        return officeBuildingarea;
+    }
+
+    public void setOfficeBuildingarea(Short officeBuildingarea) {
+        this.officeBuildingarea = officeBuildingarea;
+    }
+
+    public Short getFunDivCount() {
+        return funDivCount;
+    }
+
+    public void setFunDivCount(Short funDivCount) {
+        this.funDivCount = funDivCount;
+    }
+
+
+    public Short getCopycatNum() {
+        return copycatNum;
+    }
+
+    public void setCopycatNum(Short copycatNum) {
+        this.copycatNum = copycatNum;
+    }
+
+    public Short getNotepadNum() {
+        return notepadNum;
+    }
+
+    public void setNotepadNum(Short notepadNum) {
+        this.notepadNum = notepadNum;
+    }
+
+
+    @Override
+    public String toString() {
+        return "Orgattached{" +
+                "id=" + id +
+                ", orgId=" + orgId +
+                ", orgName='" + orgName + '\'' +
+                ", orgNo='" + orgNo + '\'' +
+                ", orgCode='" + orgCode + '\'' +
+                ", onworkerNum=" + onworkerNum +
+                ", supervisorNum=" + supervisorNum +
+                ", zbbNum=" + zbbNum +
+                ", ifPublicManage='" + ifPublicManage + '\'' +
+                ", retireNum=" + retireNum +
+                ", officeBuildArea=" + officeBuildArea +
+                ", buildingOwnerShip='" + buildingOwnerShip + '\'' +
+                ", officeBuildingarea=" + officeBuildingarea +
+                ", businessDivCount=" + businessDivCount +
+                ", funDivCount=" + funDivCount +
+                ", orgCount=" + orgCount +
+                ", equ3Count=" + equ3Count +
+                ", equ2Count=" + equ2Count +
+                ", equ1Count=" + equ1Count +
+                ", busCount=" + busCount +
+                ", rapidTestVehicleCount=" + rapidTestVehicleCount +
+                ", motorCount=" + motorCount +
+                ", cameraCount=" + cameraCount +
+                ", videoCount=" + videoCount +
+                ", copycatNum=" + copycatNum +
+                ", computerNum=" + computerNum +
+                ", notepadNum=" + notepadNum +
+                ", serverCount=" + serverCount +
+                ", pbxCount=" + pbxCount +
+                ", faxCount=" + faxCount +
+                ", ohpCount=" + ohpCount +
+                ", yearLy='" + yearLy + '\'' +
+                ", vrCount=" + vrCount +
+                '}';
     }
 }

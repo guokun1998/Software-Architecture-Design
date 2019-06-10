@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class Part01IndexController {
-    @RequestMapping("/part01/index")
+    @RequestMapping({"/part01/index","/part01/index.html"})
     public String indexOfPart01() {
         return "part01/index";
     }

@@ -3,36 +3,37 @@ package cn.edu.hrbeu.group15.po;
 import java.util.Date;
 
 public class Organization {
-    
+
     private Integer id;
 
     private String orgNo;
 
-    
+
     private String orgCode;
 
-    
+
     private String orgName;
 
-   
+
     private String exeType;
 
-    
+    private String areaType;
+
     private String areaCode;
 
-   
+
     private String linkAdd;
 
-    
+
     private Date listingDate;
 
-    
+    private Date zbbdocDate;
     private Date standAloneDate;
 
-   
-    private String orgPro;
 
-    
+    private String orgPro;
+    private  String orgLevel;
+
     private String zipCode;
 
     public Integer getId() {
@@ -121,5 +122,51 @@ public class Organization {
 
     public void setZipCode(String zipCode) {
         this.zipCode = zipCode;
+    }
+
+
+
+    public Date getZbbdocDate() {
+        return zbbdocDate;
+    }
+
+    public void setZbbdocDate(Date zbbdocDate) {
+        this.zbbdocDate = zbbdocDate;
+    }
+
+    public String getOrgLevel() {
+        return orgLevel;
+    }
+
+    public void setOrgLevel(String orgLevel) {
+        this.orgLevel = orgLevel;
+    }
+
+    public String getAreaType() {
+        return areaType;
+    }
+
+    public void setAreaType(String areaType) {
+        this.areaType = areaType;
+    }
+
+    @Override
+    public String toString() {
+        return "Organization{" +
+                "id=" + id +
+                ", orgNo='" + orgNo + '\'' +
+                ", orgCode='" + orgCode + '\'' +
+                ", orgName='" + orgName + '\'' +
+                ", exeType='" + exeType + '\'' +
+                ", areaType='" + areaType + '\'' +
+                ", areaCode='" + areaCode + '\'' +
+                ", linkAdd='" + linkAdd + '\'' +
+                ", listingDate=" + listingDate +
+                ", zbbdocDate=" + zbbdocDate +
+                ", standAloneDate=" + standAloneDate +
+                ", orgPro='" + orgPro + '\'' +
+                ", orgLevel='" + orgLevel + '\'' +
+                ", zipCode='" + zipCode + '\'' +
+                '}';
     }
 }

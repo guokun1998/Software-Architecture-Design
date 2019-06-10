@@ -23,4 +23,9 @@ public class OrgattachedServiceImpl implements OrgattachedService{
     public Orgattached getOrgattachedByOrgId(Integer orgId) {
         return orgattachedMapper.getOrgattachedByOrgId(orgId);
     }
+
+    @Override
+    public int insertOneOrgattached(Orgattached orgattached) {
+        return orgattachedMapper.insertOneOrgattached(orgattached);
+    }
 }

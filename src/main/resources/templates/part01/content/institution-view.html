@@ -21,30 +21,34 @@
             <td width="17%" align="left" th:text="${orgattached.orgCode}">23232334-9</td>
             <td width="16%" class="title" align="right"><span class="required">*</span>机构名称：</td>
             <td width="17%" align="left" th:text="${orgattached.orgName}">江苏省卫生监督所</td>
+
         </tr>
         <tr>
            <td width="15%" align="right" class="title"><span class="required">*</span>行政类别：</td>
-            <!--<td width="19%" align="left">行政部门</td>-->
+
             <td width="19%" align="left" th:if="${organization.exeType=='1'}">卫生监督机构</td>
             <td width="19%" align="left" th:if="${organization.exeType=='2'}">行政部门</td>
             <td width="19%" align="left" th:if="${organization.exeType=='3'}">协作单位</td>
            <td align="right" class="title">行政区划：</td>
-            <td align="left" colspan="3"></td>
+            <td align="left" colspan="3" th:text="${organization.areaCode}"></td>
         </tr>
         <tr>
-            <td align="right" class="title">地址：</td>
-            <td align="left" colspan="3">南京市中央路42号</td>
+            <td align="right" class="title" >地址：</td>
+            <td align="left" colspan="3" th:text="${organization.linkAdd}">哈尔滨工程大学</td>
             <td align="right" class="title">邮编：</td>
-            <td align="left">200120</td>
+            <td align="left" th:text="${organization.zipCode}">154200</td>
         </tr>
         <tr>
             <td align="right" class="title">挂牌日期：</td>
-            <td align="left">2010-04-01</td>
+            <td align="left" th:text="${organization.listingDate}">2010-04-01</td>
             <td align="right" class="title">独立运行日期：</td>
-            <td align="left">2010-04-08</td>
+            <td align="left" th:text="${organization.standAloneDate}" >2010-04-08</td>
             <td align="right" class="title"><span class="required">*</span>行政区类别：</td>
-            <td align="left">
-            	省</td>
+            <!--<td width="17%" align="left" th:text="${organization.areaType}">江苏省卫生监督所</td>-->
+        <td width="19%" align="left" th:if="${organization.areaType=='1'}">省</td>
+            <td width="19%" align="left" th:if="${organization.areaType=='2'}">市</td>
+            <td width="19%" align="left" th:if="${organization.areaType=='3'}">自治区</td>
+
         </tr>
         <tr>
             <td align="right" class="title"}>在职人数：</td>
@@ -52,13 +56,13 @@
             <td align="right" class="title">卫生监督员数：</td>
             <td align="left" th:text="${orgattached.supervisorNum}">50</td>
             <td align="right" class="title">编办批文日期：</td>
-            <td align="left">2010-04-12</td>
+            <td align="left" th:text="${organization.zbbdocDate}">2010-04-12</td>
         </tr>
 		<tr>
             <td align="right" class="title"><span class="required">*</span>机构行政级别 ：</td>
-            <td align="left" >正高级</td>
+          <td align="left" th:text="${organization.orgLevel}">正高级</td>
             <td align="right" class="title"><span class="required">*</span>机构性质：</td>
-            <td align="left">行政机构</td>
+            <td align="left" th:text="${organization.orgPro}">行政机构</td>
             <td align="right" class="title"><span class="required" >*</span>编制人数 ：</td>
             <td align="left"  th:text="${orgattached.zbbNum}">120</td>
 		</tr>
@@ -71,69 +75,67 @@
             <td align="right" class="title"><span class="required">*</span>离退休人数 ：</td>
             <td align="left"  th:text="${orgattached.retireNum}">100</td>
             <td align="right" class="title"> <span class="required">*</span>办公用房建筑面积（平方米） ：</td>
-            <td align="left">1000</td>
+            <td align="left"  th:text="${orgattached.officeBuildArea}">100</td>
 		</tr>
 		<tr>
             <td align="right" class="title"><span class="required">*</span>房屋所有权 ：</td>
-            <td align="left">租</td>
+            <td align="left" th:text="${orgattached.buildingOwnerShip}">租</td>
             <td align="right" class="title"> 办公用房在建面积（平方米） ：</td>
-            <td align="left">800</td>
+            <td align="left" th:text="${orgattached.officeBuildingarea}">800</td>
             <td align="right" class="title"><span class="required">*</span>业务科室数 ：</td>
-            <td align="left">60</td>
+            <td align="left" th:text="${orgattached.businessDivCount}">60</td>
 		</tr>
 		<tr>
             <td align="right" class="title"><span class="required">*</span>职能科室数 ：</td>
-            <td align="left">120</td>
+            <td align="left" th:text="${orgattached.funDivCount}">120</td>
             <td align="right" class="title"><span class="required">*</span>派出机构数 ：</td>
-            <td align="left">350</td>
+            <td align="left" th:text="${orgattached.orgCount}">350</td>
             <td align="right" class="title"><span class="required">*</span> 检测仪器设备数 ：</td>
             <td align="left">
-			9台（一千&lt;价格&lt;一万）<br/>
-			5台（一万&lt;价格&lt;十万）<br/>
-		  2台（价格大于十万）</td>
+            <br width="19%" align="left" th:text="${orgattached.equ3Count}">台（一千&lt;价格&lt;一万）</br>
+            <br width="19%" align="left" th:text="${orgattached.equ2Count}">台（一万&lt;价格&lt;十万）</br>
+              <br   width="19%" align="left" th:text="${orgattached.equ1Count}">台价格大于十万</td>
         </tr>
 		<tr>
             <td align="right" class="title"><span class="required">*</span> 汽车数（不含快速检测车） ：</td>
-            <td align="left">13</td>
+            <td align="left" th:text="${orgattached.busCount}">13</td>
             <td align="right" class="title"><span class="required">*</span> 快速检测车数 ：</td>
-            <td align="left">10</td>
+            <td align="left" th:text="${orgattached.rapidTestVehicleCount}">>10</td>
             <td align="right" class="title"><span class="required">*</span> 摩托车数 ：</td>
-            <td align="left">12</td>
+            <td align="left" th:text="${orgattached.motorCount}" >12</td>
         </tr>
 		<tr>
             <td align="right" class="title"><span class="required">*</span> 照相机数
 
  ：</td>
-            <td align="left">50</td>
+            <td align="left" th:text="${orgattached.cameraCount}">50</td>
             <td align="right" class="title"><span class="required">*</span> 摄像机数 ：</td>
-            <td align="left">5</td>
+            <td align="left" th:text="${orgattached.videoCount}">5</td>
             <td align="right" class="title"><span class="required">*</span> 复印机数：</td>
-            <td align="left">24</td>
+            <td align="left" th:text="${orgattached.copycatNum}">24</td>
         </tr>
 		<tr>
             <td align="right" class="title"><span class="required">*</span> 台式电脑数 ：</td>
-            <td align="left">180</td>
+            <td align="left" th:text="${orgattached.computerNum}">180</td>
             <td align="right" class="title"> <span class="required">*</span>笔记本电脑数 ：</td>
-            <td align="left">300</td>
+            <td align="left" th:text="${orgattached.notepadNum}">300</td>
             <td align="right" class="title"><span class="required">*</span> 服务器数 ：</td>
-            <td align="left">18</td>
+            <td align="left" th:text="${orgattached.serverCount}">18</td>
         </tr>
 		<tr>
             <td align="right" class="title"> <span class="required">*</span>交换机数 ：</td>
-            <td align="left">6</td>
+            <td align="left" th:text="${orgattached.pbxCount}">6</td>
             <td align="right" class="title"> <span class="required">*</span>传真机数 ：</td>
-            <td align="left">10</td>
-            <td align="right" class="title"> <span class="required">*</span>投影仪数
-
- ：</td>
-            <td align="left">20</td>
+            <td align="left" th:text="${orgattached.faxCount}">10</td>
+            <td align="right" class="title"> <span class="required">*</span>投影仪数 ：</td>
+            <td align="left" th:text="${orgattached.ohpCount}">20</td>
         </tr>
         </form>
     </table>
     <!--//commonTable-->
     <div id="formPageButton">
     	<ul>
-        	<li><a href="institution-creat.html" title="修改" class="btnShort">修改</a></li>
+        	<li><a th:href="@{'/part01/content/institution-change.html?orgId='+${organization.id}+'&page=1'}" title="修改" class="btnShort">修改</a></li>
         	<li><a href="javascript:window.history.go(-1)" title="返回" class="btnShort">返回</a></li>
         </ul>
     </div>
@@ -182,14 +184,13 @@
     <!--//commonTable-->
     <div id="pagelist">
     	<ul class="clearfix">
-        	<li><a href="#">首页</a></li>
-            <li><a href="#">上页</a></li>
-            <li class="current">1</li>
-            <li><a href="#">2</a></li>
-            <li><a href="#">下页</a></li>
-            <li><a href="#">尾页</a></li>
-            <li class="pageinfo">第1页</li>
-            <li class="pageinfo">共2页</li>
+        	<li><a th:href="@{'/part01/content/institution-view.html?orgId='+${orgId}+'&page='+${fundPageInfo.firstPage}}">首页</a></li>
+            <li><a th:href="@{'/part01/content/institution-view.html?orgId='+${orgId}+'&page='+${fundPageInfo.prePage}}">上页</a></li>
+            <li class="current" th:text="${fundPageInfo.pageNum}">1</li>
+            <!--<li><a href="/part01/content/institution-view.html?page=2">2</a></li>-->
+            <li><a th:href="@{'/part01/content/institution-view.html?orgId='+${orgId}+'&page='+${fundPageInfo.nextPage}}">下页</a></li>
+            <li><a th:href="@{'/part01/content/institution-view.html?orgId='+${orgId}+'&page='+${fundPageInfo.lastPage}}">尾页</a></li>
+            <li class="pageinfo">共<span th:text="${fundPageInfo.pageNum}"></span><span>页</span></li>
         </ul>
     </div>
 </div>

@@ -19,7 +19,7 @@ public class Stuff {
     private String orgNo;
 
 
-    private String repmanName;
+    private String repManName;
 
     
     private String gender;
@@ -68,7 +68,7 @@ public class Stuff {
     private String title;
 
     
-    private Date getIndate;
+    private Date getInDate;
 
     
     private String perPro;
@@ -86,7 +86,7 @@ public class Stuff {
     private String healthPerNo;
 
    
-    private Date getQuadate;
+    private Date getQuaDate;
 
    
     private String healthCardNo;
@@ -140,13 +140,6 @@ public class Stuff {
         this.orgNo = orgNo;
     }
 
-    public String getRepmanName() {
-        return repmanName;
-    }
-
-    public void setRepmanName(String repmanName) {
-        this.repmanName = repmanName;
-    }
 
     public String getGender() {
         return gender;
@@ -276,13 +269,6 @@ public class Stuff {
         this.title = title;
     }
 
-    public Date getGetIndate() {
-        return getIndate;
-    }
-
-    public void setGetIndate(Date getIndate) {
-        this.getIndate = getIndate;
-    }
 
     public String getPerPro() {
         return perPro;
@@ -324,14 +310,6 @@ public class Stuff {
         this.healthPerNo = healthPerNo;
     }
 
-    public Date getGetQuadate() {
-        return getQuadate;
-    }
-
-    public void setGetQuadate(Date getQuadate) {
-        this.getQuadate = getQuadate;
-    }
-
     public String getHealthCardNo() {
         return healthCardNo;
     }
@@ -362,5 +340,29 @@ public class Stuff {
 
     public void setPerCode(String perCode) {
         this.perCode = perCode;
+    }
+
+    public String getRepManName() {
+        return repManName;
+    }
+
+    public void setRepManName(String repManName) {
+        this.repManName = repManName;
+    }
+
+    public Date getGetInDate() {
+        return getInDate;
+    }
+
+    public void setGetInDate(Date getInDate) {
+        this.getInDate = getInDate;
+    }
+
+    public Date getGetQuaDate() {
+        return getQuaDate;
+    }
+
+    public void setGetQuaDate(Date getQuaDate) {
+        this.getQuaDate = getQuaDate;
     }
 }
