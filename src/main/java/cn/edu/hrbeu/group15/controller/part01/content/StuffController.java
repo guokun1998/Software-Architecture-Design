@@ -34,9 +34,31 @@ public class StuffController {
         return "/part01/content/member-list.html";
     }
 
+    @RequestMapping("/part01/content/member-edit.html")
+    public String StuffEditView(@RequestParam(required=true,name = "id") Integer id,
+                                Model model) {
+        Stuff stuff = stuffService.getStuffById(id);
+        model.addAttribute("stuff",stuff);
+        return "/part01/content/member-edit.html";
+    }
+
+    @RequestMapping("/part01/content/member/edit.html")
+    public String StuffEdit(@RequestParam(required=true,name = "repManName") String repManName,
+                            @RequestParam(required=true,name = "id") Integer id,
+                            Model model) {
+        stuffService.updateStuffRepManNameById(id, repManName);
+        return "/part01/welcome";
+    }
+
     @RequestMapping("/part01/content/member-creat.html")
     public String StuffCreateView(Model model) {
         return "/part01/content/member-creat.html";
+    }
+
+    @RequestMapping("/part01/content/member/creat.html")
+    public String StuffCreate(Stuff stuff,Model model) {
+        stuffService.insertOneStuff(stuff);
+        return "/part01/welcome";
     }
 
     @RequestMapping("/part01/content/member-view.html")

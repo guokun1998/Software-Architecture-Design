@@ -1,12 +1,17 @@
-﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+﻿<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=7" />
 <title>江苏省卫生监督业务系统</title>
-<link href="../css/main.css" rel="stylesheet" type="text/css" media="all" />
-<script src="../js/jquery-1.4.2.min.js" type="text/javascript"></script>
+<link href="/css/main.css" rel="stylesheet" type="text/css" media="all" />
+<script src="/js/jquery-1.4.2.min.js" type="text/javascript"></script>
 </head>
+<script type="text/javascript">
+    function submit(){
+        document.getElementById("memberCreat").submit();
+    }
+</script>
 <script type="text/javascript">
  function jdy_hide(){
  document.getElementById('jdy1').style.display='none';
@@ -23,12 +28,12 @@
     <h2>&gt;&gt; <a href="member-list.html">人员管理</a> - 人员创建</h2> 
   </div> 
   <table border="0" cellspacing="1" cellpadding="0" class="commonTable"> 
-    <form id="memberCreat" name="memberCreat" action="" method="post"> 
+    <form id="memberCreat" name="memberCreat" action="/part01/content/member/edit.html">
       <tr> 
         <td width="12%" align="right"><span class="required">*</span>人员编码：</td> 
         <td width="21%" align="left"><input name="textfield" type="text" class="inputTextNormal" id="textfield" /></td> 
         <td width="12%" align="right"><span class="required">*</span>姓名：</td> 
-        <td width="21%" align="left"><input name="textfield2" type="text" class="inputTextNormal" id="textfield2" /></td> 
+        <td width="21%" align="left"><input name="repManName" type="text" th:value="${stuff.repManName}" class="inputTextNormal" id="textfield2" /></td>
         <td width="12%" align="right"><span class="required">*</span>性别：</td> 
         <td align="left"><input type="radio" name="radio" id="radio1" value="radio1" /> 
           男
@@ -191,13 +196,14 @@
         <td align="left"></td> 
         <td align="right">&nbsp;</td> 
         <td align="left">&nbsp;</td> 
-      </tr> 
+      </tr>
+        <input type="hidden" th:value="${stuff.id}" name="id">
     </form> 
   </table> 
   <!--//commonTable--> 
   <div id="formPageButton"> 
     <ul> 
-      <li><a href="member-list.html" title="保存" class="btnShort">保存</a></li> 
+      <li><button title="保存" class="btnShort" onclick="submit()">保存</button></li>
       <li><a href="javascript:window.history.go(-1)" title="返回" class="btnShort">返回</a></li> 
     </ul> 
   </div> 

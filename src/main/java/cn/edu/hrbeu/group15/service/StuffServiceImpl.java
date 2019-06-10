@@ -24,4 +24,12 @@ public class StuffServiceImpl  implements StuffService{
     public Stuff getStuffById(Integer id){
         return stuffMapper.getStuffById(id);
     }
+
+    public int updateStuffRepManNameById(Integer id, String repManName){
+        return stuffMapper.updateStuffRepManNameById(id, repManName);
+    }
+
+    public int insertOneStuff(Stuff stuff){
+        return stuffMapper.insertOneStuff(stuff);
+    }
 }

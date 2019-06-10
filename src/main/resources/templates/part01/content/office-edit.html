@@ -18,7 +18,7 @@
     <div class="commonTitle">
         <h2>&gt;&gt; <a href="office-list.html">科室管理</a> - 科室更新</h2></div>
     <table border="0" cellspacing="1" cellpadding="0" class="commonTable">
-        <form id="institutionCreat" name="institutionCreat" th:action="@{'/part01/content/office/edit.html?id='+${section.id}}">
+        <form id="institutionCreat" name="institutionCreat" action="/part01/content/office/edit.html">
         <tr>
             <td align="right">机构名称：</td>
             <td colspan="5" align="left"><input name="textfield" type="text" class="inputTextLong inputTextReadonly" id="textfield" readonly="readonly" value="江苏省卫生监督所" /><span class="required">*</span></td>
@@ -39,6 +39,7 @@
             <td align="right">门号：</td>
             <td align="left"><input name="textfield2" type="text" class="inputTextNormal" id="textfield2" value="501" /></td>
         </tr>
+            <input type="hidden" th:value="${section.id}" name="id">
         </form>
     </table>
     <!--//commonTable-->
