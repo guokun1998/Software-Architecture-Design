@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+﻿<!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -40,9 +40,9 @@
         </tr>
         <tr>
             <td align="right" class="title">挂牌日期：</td>
-            <td align="left" th:text="${organization.listingDate}">2010-04-01</td>
+            <td align="left" th:text="${#calendars.format(organization.listingDate,'yyyy-MM-dd HH:mm:ss')}">2010-04-01</td>
             <td align="right" class="title">独立运行日期：</td>
-            <td align="left" th:text="${organization.standAloneDate}" >2010-04-08</td>
+            <td align="left" th:text="${#calendars.format(organization.standAloneDate,'yyyy-MM-dd HH:mm:ss')}" >2010-04-08</td>
             <td align="right" class="title"><span class="required">*</span>行政区类别：</td>
             <!--<td width="17%" align="left" th:text="${organization.areaType}">江苏省卫生监督所</td>-->
         <td width="19%" align="left" th:if="${organization.areaType=='1'}">省</td>

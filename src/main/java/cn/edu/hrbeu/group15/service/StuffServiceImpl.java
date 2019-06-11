@@ -32,4 +32,14 @@ public class StuffServiceImpl  implements StuffService{
     public int insertOneStuff(Stuff stuff){
         return stuffMapper.insertOneStuff(stuff);
     }
+
+    @Override
+    public int updateStuff(Stuff stuff) {
+        return stuffMapper.updateStuff(stuff);
+    }
+
+    @Override
+    public List<Stuff> getNotAssignStuffListByOrgId() {
+        return stuffMapper.getNotAssignStuffListByOrgId();
+    }
 }

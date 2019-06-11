@@ -365,4 +365,44 @@ public class Stuff {
     public void setGetQuaDate(Date getQuaDate) {
         this.getQuaDate = getQuaDate;
     }
+
+
+    @Override
+    public String toString() {
+        return "Stuff{" +
+                "id=" + id +
+                ", sectionId=" + sectionId +
+                ", divCode='" + divCode + '\'' +
+                ", orgId='" + orgId + '\'' +
+                ", orgNo='" + orgNo + '\'' +
+                ", repManName='" + repManName + '\'' +
+                ", gender='" + gender + '\'' +
+                ", birthDate=" + birthDate +
+                ", folk='" + folk + '\'' +
+                ", pol='" + pol + '\'' +
+                ", mobile='" + mobile + '\'' +
+                ", workTel='" + workTel + '\'' +
+                ", email='" + email + '\'' +
+                ", edu='" + edu + '\'' +
+                ", graCollege='" + graCollege + '\'' +
+                ", choiceSpe='" + choiceSpe + '\'' +
+                ", spe='" + spe + '\'' +
+                ", beforeSpe='" + beforeSpe + '\'' +
+                ", beginWorkDate=" + beginWorkDate +
+                ", manageJob='" + manageJob + '\'' +
+                ", jobLevel='" + jobLevel + '\'' +
+                ", title='" + title + '\'' +
+                ", getInDate=" + getInDate +
+                ", perPro='" + perPro + '\'' +
+                ", perType='" + perType + '\'' +
+                ", enfCardNo='" + enfCardNo + '\'' +
+                ", getCardDate=" + getCardDate +
+                ", healthPerNo='" + healthPerNo + '\'' +
+                ", getQuaDate=" + getQuaDate +
+                ", healthCardNo='" + healthCardNo + '\'' +
+                ", cardDay=" + cardDay +
+                ", ifStaffPer='" + ifStaffPer + '\'' +
+                ", perCode='" + perCode + '\'' +
+                '}';
+    }
 }

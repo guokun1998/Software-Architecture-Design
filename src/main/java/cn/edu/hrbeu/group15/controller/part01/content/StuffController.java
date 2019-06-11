@@ -31,8 +31,19 @@ public class StuffController {
     public String StuffView(Model model) {
         List<String> allOrgName = organizationService.getAllOrgName();
         model.addAttribute("allOrgName",allOrgName);
+        List<Stuff> stuffList = stuffService.getNotAssignStuffListByOrgId();
+        model.addAttribute("stuffList",stuffList);
         return "/part01/content/member-list.html";
     }
+
+    @RequestMapping("/part01/content/member-relation.html")
+    public String StuffRelationView(Model model) {
+        List<String> allOrgName = organizationService.getAllOrgName();
+        model.addAttribute("allOrgName",allOrgName);
+        return "/part01/content/member-relation.html";
+    }
+
+
 
     @RequestMapping("/part01/content/member-edit.html")
     public String StuffEditView(@RequestParam(required=true,name = "id") Integer id,
@@ -43,10 +54,16 @@ public class StuffController {
     }
 
     @RequestMapping("/part01/content/member/edit.html")
-    public String StuffEdit(@RequestParam(required=true,name = "repManName") String repManName,
-                            @RequestParam(required=true,name = "id") Integer id,
-                            Model model) {
-        stuffService.updateStuffRepManNameById(id, repManName);
+    public String StuffEdit(Stuff stuff, Model model) {
+        Stuff old = stuffService.getStuffById(stuff.getId());
+
+        stuff.setSectionId(old.getSectionId());
+        stuff.setDivCode(old.getDivCode());
+        stuff.setOrgId(old.getOrgId());
+        stuff.setOrgNo(old.getOrgNo());
+
+        stuffService.updateStuff(stuff);
+        System.out.println(stuff);
         return "/part01/welcome";
     }
 
