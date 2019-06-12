@@ -1,8 +1,10 @@
 package cn.edu.hrbeu.group15.controller.part01.content;
 
+import cn.edu.hrbeu.group15.po.Organization;
 import cn.edu.hrbeu.group15.po.Section;
 import cn.edu.hrbeu.group15.po.Stuff;
 import cn.edu.hrbeu.group15.service.OrganizationServiceImpl;
+import cn.edu.hrbeu.group15.service.SectionServiceImpl;
 import cn.edu.hrbeu.group15.service.StuffServiceImpl;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
@@ -11,6 +13,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
@@ -27,6 +31,9 @@ public class StuffController {
     @Autowired
     private OrganizationServiceImpl organizationService;
 
+    @Autowired
+    private SectionServiceImpl sectionService;
+
     @RequestMapping("/part01/content/member-list.html")
     public String StuffView(Model model) {
         List<String> allOrgName = organizationService.getAllOrgName();
@@ -37,10 +44,38 @@ public class StuffController {
     }
 
     @RequestMapping("/part01/content/member-relation.html")
-    public String StuffRelationView(Model model) {
+    public String StuffRelationView(@RequestParam(required=true,name = "id") Integer id,
+                                    Model model) {
         List<String> allOrgName = organizationService.getAllOrgName();
         model.addAttribute("allOrgName",allOrgName);
+        model.addAttribute("id",id);
         return "/part01/content/member-relation.html";
+    }
+
+    @RequestMapping("/part01/content/member/relation.html")
+    public String StuffRelation(@RequestParam(required=true,name = "orgName") String orgName,
+                                @RequestParam(required=true,name = "divName") String divName,
+                                @RequestParam(required=true,name = "id") Integer id,
+                                Model model) {
+        Organization organization = organizationService.getOrgNoAndOrgCodeByOrgName(orgName);
+        Integer orgId = organizationService.getIdByOrgName(orgName);
+        Section section = sectionService.getIdAndDivCodeByOrgIdAndDivName(orgId, divName);
+
+        stuffService.updateStuffRelation(section.getId(),section.getDivCode(),orgId,organization.getOrgNo(),id);
+        return "/part01/welcome";
+    }
+
+    @RequestMapping("/part01/content/member-section.html")
+    @ResponseBody
+    public List<String> StuffRelationSectionView(@RequestParam(required=true,name = "orgName") String orgName,
+                                           Model model) {
+        Integer orgId = organizationService.getIdByOrgName(orgName);
+        List<String> divNameList = sectionService.getSectionDivNameByOrgId(orgId);
+        List<String> allOrgName = organizationService.getAllOrgName();
+        model.addAttribute("allOrgName",allOrgName);
+        model.addAttribute("divNameList",divNameList);
+        return divNameList;
+//        return "/part01/content/member-relation.html";
     }
 
 

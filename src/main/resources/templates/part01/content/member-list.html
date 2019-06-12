@@ -136,7 +136,7 @@
             <td align="center">
                 <a th:href="@{'/part01/content/member-view.html?id='+${stuff.id}}" class="btnIconView" title="查看详情"></a>
                 <a th:href="@{'/part01/content/member-edit.html?id='+${stuff.id}}" class="btnIconEdit" title="更新"></a>
-                <a href="member-relation.html" class="btnIconRel" title="关联科室"></a>
+                <a th:href="@{'/part01/content/member-relation.html?id='+${stuff.id}}" class="btnIconRel" title="关联科室"></a>
                 <a href="userid-relation.html" class="btnIconKey" title="创建登录号"></a>
                 <a href="#" class="btnIconDel" title="注销"></a>
             </td>

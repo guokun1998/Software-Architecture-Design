@@ -27,4 +27,6 @@ public interface OrganizationService {
     List<String> getAllOrgName();
 
     Integer getIdByOrgName(String orgName);
+
+    Organization getOrgNoAndOrgCodeByOrgName(String orgName);
 }

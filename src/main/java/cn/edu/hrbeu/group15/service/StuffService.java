@@ -13,4 +13,5 @@ import java.util.List;
 public interface StuffService {
     int updateStuff(Stuff stuff);
     List<Stuff> getNotAssignStuffListByOrgId();
+    int updateStuffRelation(Integer sectionId, String divCode,Integer orgId, String orgNo, Integer id);
 }

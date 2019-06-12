@@ -42,4 +42,11 @@ public class StuffServiceImpl  implements StuffService{
     public List<Stuff> getNotAssignStuffListByOrgId() {
         return stuffMapper.getNotAssignStuffListByOrgId();
     }
+
+    @Override
+    public int updateStuffRelation(Integer sectionId, String divCode, Integer orgId, String orgNo, Integer id) {
+        return stuffMapper.updateStuffRelation(sectionId, divCode, orgId, orgNo, id);
+    }
+
+
 }

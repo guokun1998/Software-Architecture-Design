@@ -52,4 +52,10 @@ public class OrganizationServiceImpl implements OrganizationService {
         return organizationMapper.getIdByOrgName(orgName);
     }
 
+    @Override
+    public Organization getOrgNoAndOrgCodeByOrgName(String orgName) {
+        return organizationMapper.getOrgNoAndOrgCodeByOrgName(orgName);
+    }
+
+
 }

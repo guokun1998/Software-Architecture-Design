@@ -6,6 +6,7 @@
 <title>江苏省卫生监督业务系统</title>
 <link href="/css/main.css" rel="stylesheet" type="text/css" media="all" />
 <script src="/js/jquery-1.4.2.min.js" type="text/javascript"></script>
+<script src="http://libs.baidu.com/jquery/1.10.2/jquery.min.js"></script>
 
 <!--<script type="text/javascript">-->
  <!--function jigou_hide(){-->
@@ -20,62 +21,38 @@
             document.getElementById("institutionCreat").submit();
         }
     </script>
-    <script type="text/javascript">
-        var xmlHttp;
 
-        //创建ajax的核心对象creatxmlhttpRequest
-        function createXMLhttpRequest() {
-            xmlHttp = new XMLHttpRequest();
-        }
-
-        function check() {
-            // var username = document.getElementById("username").value;
-            var orgName = document.getElementById("selectO").value;
-            // 发送请求
-            sendRequest("${pageContext.request.contextPath}/part01/content/member-relation?orgName=" + orgName);
-        }
-        function sendRequest(url) {
-            createXMLhttpRequest();
-            xmlHttp.open("get",url,true);  //  true 就是异步NN
-            //   send()里面也可以指定发送内容
-            xmlHttp.send(null);   //  发送
-            xmlHttp.onreadystatechange=callBack;   //回调函数
-
-        }
-        function callBack(){
-            //当 readyState 等于 4 且状态为 200 时，表示响应已就绪：
-            if(xmlHttp.readyState==4  && xmlHttp.status==200){
-                var uname=xmlHttp.responseText;  //返回的内容:且字符串的方式返回
-                var div=document.getElementById("result");
-
-            }
-        }
-    </script>
 
 </head>
 
 <body class="content-pages-body">
 <div class="content-pages-wrap">
     <div class="commonTitle">
-        <h2>&gt;&gt; <a href="member-list.html">人员管理</a> - 关联科室</h2></div>
+        <h2>&gt;&gt; <a href="member-list.html">人员管理</a> - 关联科室</h2>
+    </div>
     <table border="0" cellspacing="1" cellpadding="0" class="commonTable">
-        <form id="institutionCreat" name="institutionCreat" action="" method="post">
-
+        <form id="institutionCreat" name="institutionCreat" action="/part01/content/member/relation.html" method="post">
+            <input type="hidden" th:value="${id}" name="id">
 		 <tr id="qitajigourow">
             <td align="right"><span class="required">*</span>选择机构：</td>
              <td><select name="orgName" id="selectO">
-                 <option th:each="orgName:${allOrgName}" th:text="${orgName}" onchange="check()">某某监督机构1</option>
+                 <option th:text="请选择">
+                 <option th:each="orgName:${allOrgName}" th:text="${orgName}" >某某监督机构1</option>
              </select></td>
         </tr>		
         <tr>
             <td align="right"><span class="required">*</span>选择科室：</td>
-            <td align="left"><select name="select" id="select">
-                <option value="1" id="result">办公室</option>
-                <option value="2">法制科</option>
-                <option value="3">外宣办</option>
-            </select>                
+            <td align="left"><select name="divName" id="dss">
+                <!--<option value="1" id="result">办公室</option>-->
+                <!--<option value="2">法制科</option>-->
+                <!--<option value="3">外宣办</option>-->
+                <!--<option  th:each="divName:${divNameList}" th:text="${divNameList}">外宣办</option>-->
+            </select>
                 </td>
         </tr>
+
+
+
 
         </form>
     </table>
@@ -89,5 +66,28 @@
     <!--//commonToolBar-->
 </div>
 <!--//content pages wrap-->
+<script type="text/javascript">
+    var orgName = null;
+    $("select[id=selectO]").change(function(){
+        orgName = $(this).val();
+        $.ajax({
+            type:"POST",
+            async:true,  //异步
+            dataType:"json",
+            url: "/part01/content/member-section.html",    //url地址
+            data:{"orgName":orgName},
+            success : function (data) {   //请求成功时的返回函数
+                // var list =  JSON.stringify(data);
+                for (var i = 0; i < data.length; i++) {
+                    var option = document.createElement("option");
+                    $(option).val(data[i]);
+                    $(option).text(data[i]);
+                    $('#dss').append(option);
+                }
+            }
+        });
+    });
+
+</script>
 </body>
 </html>

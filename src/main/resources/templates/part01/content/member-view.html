@@ -20,10 +20,8 @@
                 <td width="12%" class="title">姓名</td>
                 <td width="21%" th:text="${stuff.repManName}">测试人员</td>
                 <td width="12%" class="title">性别</td>
-                <!--<td>男</td>-->
                 <td align="center" th:if="${stuff.gender=='1'}">男</td>
                 <td align="center" th:if="${stuff.gender=='2'}">女</td>
-                <td align="center" th:if="${stuff.gender=='3'}">男上加男</td>
             </tr>
             <tr>
                 <td class="title" >出生年月：</td>
@@ -58,7 +56,14 @@
             </tr>
             <tr>
                 <td class="title">所学专业类型：</td>
-                <td th:text="${stuff.spe}">公共卫生</td>
+                <!--<td th:text="${stuff.spe}">公共卫生</td>-->
+                <td th:if="${stuff.spe=='1'}">工程</td>
+                <td th:if="${stuff.spe=='2'}">法律</td>
+                <td th:if="${stuff.spe=='3'}">医药</td>
+                <td th:if="${stuff.spe=='4'}">公共卫生</td>
+                <td th:if="${stuff.spe=='5'}">无专业</td>
+                <td th:if="${stuff.spe=='6'}">其他专业</td>
+                <td th:if="${stuff.spe=='7'}">初中</td>
                 <td class="title">建所前从事专业：</td>
                 <td th:text="${stuff.beforeSpe}">医药</td>
                 <td class="title">何时参加工作：</td>
@@ -67,23 +72,37 @@
             </tr>
             <tr>
                 <td class="title">职务：</td>
-                <td align="center" th:if="${stuff.manageJob=='1'}">主任</td>
-                <td align="center" th:if="${stuff.manageJob=='2'}">副主任</td>
-                <td align="center" th:if="${stuff.manageJob=='3'}">职员</td>
-                <td class="title">职级：</td>
-                <td align="center" th:if="${stuff.jobLevel=='1'}">乡科级正职</td>
-                <td align="center" th:if="${stuff.jobLevel=='2'}">乡科级副级</td>
-                <td align="center" th:if="${stuff.jobLevel=='3'}">普通工作者</td>
+                <td value="1" th:if="${stuff.manageJob eq '1'}">所长</td>
+                <td value="2" th:if="${stuff.manageJob eq '2'}">书记</td>
+                <td value="3" th:if="${stuff.manageJob=='3'}">副所长</td>
+                <td value="4" th:if="${stuff.manageJob=='4'}">副书记</td>
+                <td value="5" th:if="${stuff.manageJob=='5'}">主任(科长)</td>
+                <td value="6" th:if="${stuff.manageJob=='6'}">副主任(副科长)</td>
+                <td value="7" th:if="${stuff.manageJob=='7'}">无</td>
                 <td class="title">职称：</td>
-                <td  th:text="${stuff.title}">无职称</td>
+                <td value="1" th:if="${stuff.jobLevel=='1'}">省部级正职</td>
+                <td value="2" th:if="${stuff.jobLevel=='2'}">省部级副职</td>
+                <td value="3" th:if="${stuff.jobLevel=='3'}">厅局级正职</td>
+                <td value="4" th:if="${stuff.jobLevel=='4'}">厅局级副职</td>
+                <td value="5" th:if="${stuff.jobLevel=='5'}">乡科级正职</td>
+                <td value="6" th:if="${stuff.jobLevel=='6'}">乡科级副职</td>
+                <td value="7" th:if="${stuff.jobLevel=='7'}">县处级正职</td>
+                <td value="8" th:if="${stuff.jobLevel=='8'}">县处级副职</td>
+                <td value="9" th:if="${stuff.jobLevel=='9'}">科办员</td>
             </tr>
             <tr>
                 <td class="title">何时进卫生监督所：</td>
                 <td th:text="${stuff.getInDate}">2010-04-08</td>
                 <td class="title">人员性质：</td>
-                <td th:text="${stuff.perPro}">固定干部</td>
+                <td value="1" th:if="${stuff.perPro=='1'}">聘用制干部</td>
+                <td value="2" th:if="${stuff.perPro=='2'}">聘用制工人</td>
+                <td value="3" th:if="${stuff.perPro=='3'}">固定干部</td>
+                <td value="4" th:if="${stuff.perPro=='4'}">固定工人</td>
+                <td value="5" th:if="${stuff.perPro=='5'}">其他</td>
                 <td class="title">类型：</td>
-                <td th:text="${stuff.perType}">监督人员</td>
+                <td th:if="${stuff.perType=='1'}">监督人员</td>
+                <td th:if="${stuff.perType=='2'}">协查人员</td>
+                <td th:if="${stuff.perType=='3'}">不详</td>
             </tr>
             <tr>
                 <td class="title"> 行政执法证号： </td>
