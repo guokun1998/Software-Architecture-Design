@@ -1,10 +1,7 @@
 package cn.edu.hrbeu.group15.mapper;
 
 import cn.edu.hrbeu.group15.po.Stuff;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Select;
-import org.apache.ibatis.annotations.Update;
+import org.apache.ibatis.annotations.*;
 import org.omg.PortableInterceptor.INACTIVE;
 
 import java.util.List;
@@ -45,5 +42,9 @@ public interface StuffMapper {
             "values" +
             "(#{sectionId},#{divCode},#{orgId},#{orgNo},#{repManName},#{gender},#{birthDate},#{folk},#{pol},#{mobile},#{workTel},#{email},#{edu},#{graCollege},#{choiceSpe},#{spe},#{beforeSpe},#{beginWorkDate},#{manageJob},#{jobLevel},#{title},#{getInDate},#{perPro},#{perType},#{enfCardNo},#{getCardDate},#{healthPerNo},#{getQuaDate},#{healthCardNo},#{cardDay},#{ifStaffPer},#{perCode})")
     int insertOneStuff(Stuff stuff);
+
+
+    @Delete("delete from t_d0_stuff where id=#{id}")
+    int deleteOneStuff(Integer id);
 
 }

@@ -43,4 +43,9 @@ public interface OrganizationMapper {
     @Update("update t_d0_organization set orgNo=#{orgNo} where id=#{id}")
     int updateOrgNo(Organization organization);
 
+    @Update("UPDATE  t_d0_organization SET " +
+            "orgNo = #{orgNo}, orgCode = #{orgCode}, orgName = #{orgName}, exeType = #{exeType}, areaCode = #{areaCode}, linkAdd = #{linkAdd}, listingDate = #{listingDate}, standAloneDate = #{standAloneDate}, areaType = #{areaType}, zbbdocDate = #{zbbdocDate}, orgLevel = #{orgLevel}, orgPro = #{orgPro},  zipCode = #{zipCode} " +
+            "WHERE id = #{id}")
+    int updateOrganization(Organization organization);
+
 }

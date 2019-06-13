@@ -18,8 +18,8 @@
                 <th align="right">机构名称：</th>
                 <td>
                     <select name="orgName" id="select">
+                        <option value="null">请选择</option>
                         <option th:each="orgName:${allOrgName}" th:text="${orgName}">某某监督机构1</option>
-                        <!--<option value="">某某监督机构1</option>-->
                     </select>
                 </td>
                 <th >科室名称：</th>
@@ -47,9 +47,9 @@
             <th class="editColS">编辑</th>
         </tr>
         <tr th:each="section:${sectionList}">
-            <td align="center" th:text="${section.orgId}">0123456-01</td>
+            <td align="center" th:text="${section.orgNo}">0123456-01</td>
             <!--"-->
-            <td align="left" th:text="${orgName}">江苏省卫生监督所</td>
+            <td align="left" th:text="${section.orgName}">江苏省卫生监督所</td>
             <td align="center">行政部门</td>
             <td align="center" th:text="${section.divCode}">0123456-01-232323</td>
             <td align="left" th:text="${section.divName}">办公室</td>

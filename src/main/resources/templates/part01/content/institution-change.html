@@ -17,74 +17,75 @@
 <div class="content-pages-wrap">
     <div class="commonTitle"><h2>&gt;&gt; <a href="institution-list.html">机构管理</a> - 机构创建</h2></div>
     <table border="0" cellspacing="1" cellpadding="0" class="commonTable">
-        <form id="institutionCreat" name="institutionCreat" th:action="@{'/part01/content/institution/change.html?orgId='+${organization.id}}">
+        <form id="institutionCreat" name="institutionCreat" th:action="@{'/part01/content/institution/change.html'}">
+            <input type="hidden" th:value="${organization.id}" name="id">
             <tr>
                 <td align="right"><span class="required">*</span>机构编码：</td>
                 <td align="left"><input name="orgNo" type="text" class="inputTextMiddle" th:value="${organization.orgNo}" id="textfield" /></td>
                 <td align="right"><span class="required">*</span>机构代码：</td>
-                <td align="left" colspan="3"><input name="orgCode" type="text" class="inputTextMiddle" id="textfield" />(<span class="required">代码格式:XXXXXXXX-X</span>)</td>
+                <td align="left" colspan="3"><input name="orgCode" type="text" class="inputTextMiddle" th:value="${organization.orgCode}" id="textfield" />(<span class="required">代码格式:XXXXXXXX-X</span>)</td>
             </tr>
             <tr>
                 <td align="right"><span class="required">*</span>机构名称：</td>
-                <td align="left"><input name="orgName" type="text" class="inputTextMiddle" id="textfield2" /></td>
+                <td align="left"><input name="orgId" type="text" class="inputTextMiddle" id="textfield2"  th:value="${organization.orgName}"/></td>
                 <td align="right"><span class="required">*</span>行政类别：</td>
                 <td align="left" colspan="4" >
-                    <input type="radio" name="exeType" id="radio5" value="2" />行政部门
-                    <input type="radio" name="exeType" id="radio6" value="1" />卫生监督机构
-                    <input type="radio" name="exeType" id="radio7" value="3" />协作单位
+                    <input type="radio" name="exeType" id="radio5" value="2"  th:field="*{organization.exeType}"/>行政部门
+                    <input type="radio" name="exeType" id="radio6" value="1"  th:field="*{organization.exeType}"/>卫生监督机构
+                    <input type="radio" name="exeType" id="radio7" value="3"  th:field="*{organization.exeType}"/>协作单位
                 </td>
             </tr>
             <tr>
                 <td align="right">地址：</td>
-                <td colspan="3" align="left"><input name="linkAdd" type="text" class="inputTextLong" id="textfield5" /></td>
+                <td colspan="3" align="left"><input name="linkAdd" type="text" class="inputTextLong" id="textfield5" th:value="${organization.linkAdd}"/></td>
                 <td align="right">邮编：</td>
-                <td align="left"><input name="zipCode" type="text" class="inputTextNormal" id="textfield4" /></td>
+                <td align="left"><input name="zipCode" type="text" class="inputTextNormal" id="textfield4" th:value="${organization.zipCode}" /></td>
             </tr>
             <tr>
                 <td align="right"><span class="required">*</span>行政区划：</td>
-                <td align="left"><input name="areaCode" type="text" class="inputTextNormal" id="textfield6" /></td>
+                <td align="left"><input name="areaCode" type="text" class="inputTextNormal" id="textfield6" th:value="${organization.areaCode}"/></td>
                 <td align="right">挂牌日期：</td>
                 <td align="left"><input name="listingDate" type="date" class="inputTextNormal" id="textfield6" /></td>
                 <td align="right">独立运行日期：</td>
                 <td align="left"><input name="standAloneDate" type="date" class="inputTextNormal" id="textfield7" /></td>
             </tr>
             <tr>
-                <td align="right"><span class="required">*</span>行政区类别：</td>
+                <td align="right"><span class="required" >*</span>行政区类别：</td>
                 <td align="left" >
-                    <input type="radio" name="areaType" id="radio1" value="1" />省
-                    <input type="radio" name="areaType" id="radio2" value="2" />市
-                    <input type="radio" name="areaType" id="radio3" value="3" />县
-                    <input type="radio" name="areaType" id="radio4" value="4" />区
+                    <input type="radio" name="areaType" id="radio1" value="1"  th:field="*{organization.areaType}"/>省
+                    <input type="radio" name="areaType" id="radio2" value="2"  th:field="*{organization.areaType}"/>市
+                    <input type="radio" name="areaType" id="radio3" value="3"  th:field="*{organization.areaType}"/>县
+                    <input type="radio" name="areaType" id="radio4" value="4"  th:field="*{organization.areaType}"/>区
 
                 </td>
 
 
                 <td align="right">在职人数：</td>
-                <td align="left"><input name="onworkerNum" type="text" class="inputTextNormal" id="textfield8" /></td>
+                <td align="left"><input name="onworkerNum" type="text" class="inputTextNormal" id="textfield8" th:value="${orgattached.onworkerNum}" /></td>
                 <td align="right">卫生监督员数：</td>
-                <td align="left"><input name="supervisorNum" type="text" class="inputTextNormal" id="textfield9" /></td>
+                <td align="left"><input name="supervisorNum" type="text" class="inputTextNormal" id="textfield9" th:value="${orgattached.supervisorNum}" /></td>
             </tr>
             <tr>
                 <td align="right"><span class="required">*</span>机构行政级别 ：</td>
                 <td align="left">
                     <select name="orgLevel" id="select">
-                    <!--<option value="">请选择</option>-->
-                    <option value="1">处级</option>
-                    <option value="2">副处级</option>
-                    <option value="3">科级</option>
-                    <option value="4">副科级</option>
-                    <option value="5">乡级及以下</option>
-                </select></td>
+                        <!--<option value="">请选择</option>-->
+                        <option value="1">处级</option>
+                        <option value="2">副处级</option>
+                        <option value="3">科级</option>
+                        <option value="4">副科级</option>
+                        <option value="5">乡级及以下</option>
+                    </select></td>
                 <td align="right"><span class="required">*</span>机构性质：</td>
                 <td align="left">
                     <select name="orgPro" id="select5">
-                    <!--<option value="">请选择</option>-->
-                    <option value="1">行政机构</option>
-                    <option value="2">全额拔款事业单位</option>
-                    <option value="3">差额拔款事业单位</option>
-                    <option value="4">自收自支事业单位</option>
-                    <option value="5">其他</option>
-                </select></td>
+                        <!--<option value="">请选择</option>-->
+                        <option value="1">行政机构</option>
+                        <option value="2">全额拔款事业单位</option>
+                        <option value="3">差额拔款事业单位</option>
+                        <option value="4">自收自支事业单位</option>
+                        <option value="5">其他</option>
+                    </select></td>
                 <td align="right">编办批文日期：</td>
                 <td align="left"><input name="zbbdocDate" type="date" class="inputTextNormal" id="textfield936" /></td>
             </tr>
@@ -98,75 +99,75 @@
                     </select>
                     <!--<input type="radio" name="0" value="是"/>是<input type="ifPublicManage" name="1" value="否">否</td>-->
                 <td align="right"><span class="required">*</span>离退休人数 ：</td>
-                <td align="left"><input name="retireNum" type="text" class="inputTextNormal" id="textfield9" /></td>
+                <td align="left"><input name="retireNum" type="text" class="inputTextNormal" id="textfield9" th:value="${orgattached.retireNum}" /></td>
                 <td align="right"><span class="required">*</span>编制人数 ：</td>
-                <td align="left"><input name="zbbNum" type="text" class="inputTextNormal" id="textfield935" /></td>
+                <td align="left"><input name="zbbNum" type="text" class="inputTextNormal" id="textfield935"  th:value="${orgattached.zbbNum}"/></td>
             </tr>
             <tr>
                 <td align="right"><span class="required">*</span>房屋所有权 ：</td>
                 <td align="left">
                     <select  id="select">
-                    <!--<option value="">请选择</option>-->
-                    <option name="buildingOwnership" value="0">自有</option>
-                    <option value="1" name="buildingOwnership">借</option>
-                    <option value="2" name="buildingOwnership">租</option>
-                </select></td>
+                        <!--<option value="">请选择</option>-->
+                        <option name="buildingOwnership" value="0">自有</option>
+                        <option value="1" name="buildingOwnership">借</option>
+                        <option value="2" name="buildingOwnership">租</option>
+                    </select></td>
                 <td align="right"> 办公用房在建面积（平方米） ：</td>
-                <td align="left"><input name="officeBuildingarea" type="text" class="inputTextNormal" id="textfield9" /></td>
+                <td align="left"><input name="officeBuildingarea" type="text" class="inputTextNormal" id="textfield9" th:value="${orgattached.officeBuildingarea}" /></td>
                 <td align="right"> <span class="required">*</span>办公用房建筑面积（平方米） ：</td>
-                <td align="left"><input name="officeBuildArea" type="text" class="inputTextNormal" id="textfield934" /></td>
+                <td align="left"><input name="officeBuildArea" type="text" class="inputTextNormal" id="textfield934" th:value="${orgattached.officeBuildArea}" /></td>
             </tr>
             <tr>
                 <td align="right"><span class="required">*</span>职能科室数 ：</td>
-                <td align="left"><input name="funDivCount" type="text" class="inputTextNormal" id="textfield8" /></td>
+                <td align="left"><input name="funDivCount" type="text" class="inputTextNormal" id="textfield8" th:value="${orgattached.funDivCount}"/></td>
                 <td align="right"><span class="required">*</span>派出机构数 ：</td>
-                <td align="left"><input name="orgCount" type="text" class="inputTextNormal" id="textfield9" /></td>
+                <td align="left"><input name="orgCount" type="text" class="inputTextNormal" id="textfield9" th:value="${orgattached.orgCount}" /></td>
                 <td align="right"><span class="required">*</span>业务科室数 ：</td>
-                <td align="left"><input name="businessDivCount" type="text" class="inputTextNormal" id="textfield92" /></td>
+                <td align="left"><input name="businessDivCount" type="text" class="inputTextNormal" id="textfield92" th:value="${orgattached.businessDivCount}"/></td>
             </tr>
             <tr>
                 <!--mark-->
                 <td align="right"><span class="required">*</span>检测仪器设备数 ：</td>
                 <td align="left" colspan="5">
-                    <input name="equ1Count" colspan="2" type="text" id="textfield9" size="4"/>（价格大于一千,小于一万）<br/>
-                    <input name="equ3Count" colspan="2" type="text" id="textfield9" size="4"/>（价格大于一万、小于十万）<br/>
-                    <input name="equ2Count" type="text" id="textfield9" size="4"/>（价格大于十万）</td>
+                    <input name="equ1Count" colspan="2" type="text" id="textfield9" size="4" th:value="${orgattached.equ1Count}"/>（价格大于一千,小于一万）<br/>
+                    <input name="equ3Count" colspan="2" type="text" id="textfield9" size="4" th:value="${orgattached.equ3Count}"/>（价格大于一万、小于十万） <br/>
+                    <input name="equ2Count" type="text" id="textfield9" size="4" th:value="${orgattached.equ2Count}"/>（价格大于十万）</td>
             </tr>
             <tr>
                 <td align="right"><span class="required">*</span> 汽车数（不含快速检测车） ：</td>
-                <td align="left"><input name="busCount" type="text" class="inputTextNormal" id="textfield8" /></td>
+                <td align="left"><input name="busCount" type="text" class="inputTextNormal" id="textfield8" th:value="${orgattached.busCount}" /></td>
                 <td align="right"><span class="required">*</span> 快速检测车数 ：</td>
-                <td align="left"><input name="rapidTestVehicleCount" type="text" class="inputTextNormal" id="textfield9" /></td>
+                <td align="left"><input name="rapidTestVehicleCount" type="text" class="inputTextNormal" id="textfield9" th:value="${orgattached.rapidTestVehicleCount}" /></td>
                 <td align="right"><span class="required">*</span> 摩托车数 ：</td>
-                <td align="left"><input name="motorCount" type="text" class="inputTextNormal" id="textfield93" /></td>
+                <td align="left"><input name="motorCount" type="text" class="inputTextNormal" id="textfield93" th:value="${orgattached.motorCount}" /></td>
             </tr>
             <tr>
                 <td align="right"><span class="required">*</span> 照相机数：</td>
-                <td align="left"><input name="cameraCount" type="text" class="inputTextNormal" id="textfield8" /></td>
+                <td align="left"><input name="cameraCount" type="text" class="inputTextNormal" id="textfield8" th:value="${orgattached.cameraCount}" /></td>
                 <td align="right"><span class="required">*</span> 摄像机数 ：</td>
-                <td align="left"><input name="videoCount" type="text" class="inputTextNormal" id="textfield9" /></td>
+                <td align="left"><input name="videoCount" type="text" class="inputTextNormal" id="textfield9"  th:value="${orgattached.videoCount}"/></td>
                 <td align="right"><span class="required">*</span> 复印机数：</td>
-                <td align="left"><input name="copycatNum" type="text" class="inputTextNormal" id="textfield932" /></td>
+                <td align="left"><input name="copycatNum" type="text" class="inputTextNormal" id="textfield932"  th:value="${orgattached.supervisorNum}"copycatNum/></td>
             </tr>
             <tr>
                 <td align="right"><span class="required">*</span> 台式电脑数 ：</td>
-                <td align="left"><input name="computerNum" type="text" class="inputTextNormal" id="textfield8" /></td>
+                <td align="left"><input name="computerNum" type="text" class="inputTextNormal" id="textfield8" th:value="${orgattached.computerNum}"/></td>
                 <td align="right"> <span class="required">*</span>笔记本电脑数 ：</td>
-                <td align="left"><input name="notepadNum" type="text" class="inputTextNormal" id="textfield9" /></td>
+                <td align="left"><input name="notepadNum" type="text" class="inputTextNormal" id="textfield9" th:value="${orgattached.notepadNum}" /></td>
                 <td align="right"><span class="required">*</span> 服务器数 ：</td>
-                <td align="left"><input name="serverCount" type="text" class="inputTextNormal" id="textfield933" /></td>
+                <td align="left"><input name="serverCount" type="text" class="inputTextNormal" id="textfield933" th:value="${orgattached.serverCount}"/></td>
             </tr>
             <tr>
                 <td align="right"> <span class="required">*</span>交换机数 ：</td>
-                <td align="left"><input name="pbxCount" type="text" class="inputTextNormal" id="textfield8" /></td>
+                <td align="left"><input name="pbxCount" type="text" class="inputTextNormal" id="textfield8" th:value="${orgattached.pbxCount}" /></td>
                 <td align="right"> <span class="required">*</span>传真机数 ：</td>
-                <td align="left"><input name="faxCount" type="text" class="inputTextNormal" id="textfield9" /></td>
+                <td align="left"><input name="faxCount" type="text" class="inputTextNormal" id="textfield9" th:value="${orgattached.faxCount}" /></td>
                 <td align="right"> <span class="required">*</span>投影仪数 ：</td>
-                <td align="left"><input name="ohpCount" type="text" class="inputTextNormal" id="textfield937" /></td>
+                <td align="left"><input name="ohpCount" type="text" class="inputTextNormal" id="textfield937"  th:value="${orgattached.ohpCount}"/></td>
             </tr>
             <tr>
                 <td align="right"> <span class="required">*</span>录音笔数：</td>
-                <td align="left"><input name="vrCount" type="text" class="inputTextNormal" id="textfield937" /></td>
+                <td align="left"><input name="vrCount" type="text" class="inputTextNormal" id="textfield937" th:value="${orgattached.vrCount}" /></td>
                 <td align="right"> </td>
                 <td align="left"></td>
                 <td align="right"> </td>

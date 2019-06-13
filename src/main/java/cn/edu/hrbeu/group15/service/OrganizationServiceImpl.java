@@ -57,5 +57,10 @@ public class OrganizationServiceImpl implements OrganizationService {
         return organizationMapper.getOrgNoAndOrgCodeByOrgName(orgName);
     }
 
+    @Override
+    public int updateOrganization(Organization organization) {
+        return organizationMapper.updateOrganization(organization);
+    }
+
 
 }

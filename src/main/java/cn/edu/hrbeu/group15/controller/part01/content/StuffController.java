@@ -121,6 +121,13 @@ public class StuffController {
         return "/part01/content/member-view.html";
     }
 
+    @RequestMapping("/part01/content/member/delete.html")
+    public String StuffDelete(@RequestParam(required=true,name = "id") Integer id,
+                              Model model) {
+        stuffService.deleteOneStuff(id);
+        return "/part01/welcome";
+    }
+
     @RequestMapping("/part01/content/member/list.html")
     public String StuffListView(@RequestParam(required=true,defaultValue="1",name = "orgName") String orgName,
                                  @RequestParam(required=true,name = "repManName") String repManName,
@@ -131,13 +138,6 @@ public class StuffController {
         PageHelper.startPage(page,5);
         Integer id = organizationService.getIdByOrgName(orgName);
         List<Stuff> stuffList = stuffService.getStuffListByOrgId(id);
-//        List<Section> sectionList;
-//        if (divName == null || divName == "") {
-//            sectionList = sectionService.getSectionListByOrgId(id);
-//        }
-//        else {
-//            sectionList = sectionService.getSectionListByOrgIdAndDivName(id,divName);
-//        }
         PageInfo<Stuff> stuffPageInfo = new PageInfo<>(stuffList);
         model.addAttribute("stuffPageInfo",stuffPageInfo);
         model.addAttribute("orgName",orgName);

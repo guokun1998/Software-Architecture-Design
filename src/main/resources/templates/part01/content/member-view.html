@@ -25,7 +25,7 @@
             </tr>
             <tr>
                 <td class="title" >出生年月：</td>
-                <td th:text="${stuff.birthDate}"> 1985-12-12</td>
+                <td th:text="${#calendars.format(stuff.birthDate,'yyyy-MM-dd HH:mm:ss')}"> 1985-12-12</td>
                 <td class="title">民族：</td>
                 <td align="center" th:if="${stuff.folk=='1'}">汉族</td>
                 <td align="center" th:if="${stuff.folk=='2'}">少数民族</td>
@@ -67,7 +67,7 @@
                 <td class="title">建所前从事专业：</td>
                 <td th:text="${stuff.beforeSpe}">医药</td>
                 <td class="title">何时参加工作：</td>
-                <td th:text="${stuff.beginWorkDate}">2008-09-09</td>
+                <td th:text="${#calendars.format(stuff.beginWorkDate,'yyyy-MM-dd HH:mm:ss')}">2008-09-09</td>
 
             </tr>
             <tr>
@@ -92,7 +92,7 @@
             </tr>
             <tr>
                 <td class="title">何时进卫生监督所：</td>
-                <td th:text="${stuff.getInDate}">2010-04-08</td>
+                <td th:text="${#calendars.format(stuff.getInDate,'yyyy-MM-dd HH:mm:ss')}">2010-04-08</td>
                 <td class="title">人员性质：</td>
                 <td value="1" th:if="${stuff.perPro=='1'}">聘用制干部</td>
                 <td value="2" th:if="${stuff.perPro=='2'}">聘用制工人</td>
@@ -108,17 +108,17 @@
                 <td class="title"> 行政执法证号： </td>
                 <td th:text="${stuff.enfCardNo}">09897</td>
                 <td class="title">何时取得行政执法证：</td>
-                <td th:text="${stuff.getCardDate}">2010-04-08</td>
+                <td th:text="${#calendars.format(stuff.getCardDate,'yyyy-MM-dd HH:mm:ss')}">2010-04-08</td>
                 <td class="title"> 卫生监督胸牌号： </td>
                 <td th:text="${stuff.healthPerNo}">09876</td>
             </tr>
             <tr>
                 <td class="title">何时取得卫生监督员资格：</td>
-                <td th:text="${stuff.getQuaDate}">2010-04-08</td>
+                <td th:text="${#calendars.format(stuff.getQuaDate,'yyyy-MM-dd HH:mm:ss')}">2010-04-08</td>
                 <td class="title"> 目前持有有效的监督员证号： </td>
                 <td th:text="${stuff.healthCardNo}">09075</td>
                 <td class="title">目前所持有效监督员证的有效时间：</td>
-                <td th:text="${stuff.cardDay}">2010-04-08</td>
+                <td th:text="${#calendars.format(stuff.cardDay,'yyyy-MM-dd HH:mm:ss')}">2010-04-08</td>
             </tr>
             <tr>
                 <td class="title">是否为在编人员：</td>

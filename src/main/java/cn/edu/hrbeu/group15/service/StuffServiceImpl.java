@@ -48,5 +48,10 @@ public class StuffServiceImpl  implements StuffService{
         return stuffMapper.updateStuffRelation(sectionId, divCode, orgId, orgNo, id);
     }
 
+    @Override
+    public int deleteOneStuff(Integer id) {
+        return stuffMapper.deleteOneStuff(id);
+    }
+
 
 }

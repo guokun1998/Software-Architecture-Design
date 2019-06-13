@@ -12,4 +12,6 @@ public interface OrgattachedService {
     Orgattached getOrgattachedByOrgId(Integer orgId);
 
     int insertOneOrgattached(Orgattached orgattached);
+
+    int updateOrgattached(Orgattached orgattached);
 }

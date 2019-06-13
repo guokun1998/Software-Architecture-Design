@@ -29,4 +29,6 @@ public interface OrganizationService {
     Integer getIdByOrgName(String orgName);
 
     Organization getOrgNoAndOrgCodeByOrgName(String orgName);
+
+    int updateOrganization(Organization organization);
 }

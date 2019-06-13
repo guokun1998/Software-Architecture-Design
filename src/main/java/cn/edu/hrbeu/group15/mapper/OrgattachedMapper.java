@@ -4,6 +4,7 @@ import cn.edu.hrbeu.group15.po.Orgattached;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 
 /**
  * @author guokun
@@ -22,4 +23,9 @@ public interface OrgattachedMapper {
             "values" +
             "(#{orgId},#{orgName},#{orgNo},#{orgCode},#{onworkerNum},#{supervisorNum},#{zbbNum},#{ifPublicManage},#{retireNum},#{officeBuildArea},#{buildingOwnerShip},#{officeBuildingarea},#{businessDivCount},#{funDivCount},#{orgCount},#{equ3Count},#{equ2Count},#{equ1Count},#{busCount},#{rapidTestVehicleCount},#{motorCount},#{cameraCount},#{videoCount},#{copycatNum},#{computerNum},#{notepadNum},#{serverCount},#{pbxCount},#{faxCount},#{ohpCount},#{yearLy},#{vrCount})")
     int insertOneOrgattached(Orgattached orgattached);
+
+    @Update("UPDATE t_d0_orgattached SET " +
+            "orgName = #{orgName}, orgNo = #{orgNo}, orgCode = #{orgCode}, onworkerNum = #{onworkerNum}, supervisorNum = #{supervisorNum},  zbbNum = #{zbbNum}, ifPublicManage = #{ifPublicManage}, retireNum = #{retireNum}, officeBuildArea = #{officeBuildArea}, buildingOwnerShip = #{buildingOwnerShip}, officeBuildingarea = #{officeBuildingarea},  businessDivCount = #{businessDivCount}, funDivCount = #{funDivCount}, orgCount = #{orgCount}, equ3Count = #{equ3Count}, equ2Count = #{equ2Count}, equ1Count = #{equ1Count}, busCount = #{busCount}, rapidTestVehicleCount = #{rapidTestVehicleCount}, motorCount = #{motorCount},  cameraCount = #{cameraCount}, videoCount = #{videoCount},  copycatNum = #{copycatNum}, computerNum = #{computerNum},  notepadNum = #{notepadNum}, serverCount = #{serverCount},  pbxCount = #{pbxCount},  faxCount = #{faxCount}, ohpCount = #{ohpCount},  yearLy = #{yearLy}, vrCount = #{vrCount} " +
+            "WHERE orgId = #{orgId}")
+    int updateOrgattached(Orgattached orgattached);
 }

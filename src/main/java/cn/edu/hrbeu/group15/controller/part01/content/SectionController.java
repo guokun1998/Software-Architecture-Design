@@ -7,6 +7,8 @@ import cn.edu.hrbeu.group15.po.Orgattached;
 import cn.edu.hrbeu.group15.po.Section;
 import cn.edu.hrbeu.group15.service.OrganizationServiceImpl;
 import cn.edu.hrbeu.group15.service.SectionServiceImpl;
+import cn.edu.hrbeu.group15.vo.SectionEasyView;
+import cn.edu.hrbeu.group15.vo.SectionSelectCondition;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +16,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
 
@@ -41,21 +44,30 @@ public class SectionController {
                                  @RequestParam(required=true,name = "divName") String divName,
                                  @RequestParam(required=true,defaultValue="1",name = "page") Integer page,
                                  Model model) {
+        //下拉选项
         List<String> allOrgName = organizationService.getAllOrgName();
         model.addAttribute("allOrgName",allOrgName);
-        PageHelper.startPage(page,5);
-        Integer id = organizationService.getIdByOrgName(orgName);
-        List<Section> sectionList;
-        if (divName == null || divName == "") {
-            sectionList = sectionService.getSectionListByOrgId(id);
+        //查询规则
+        SectionSelectCondition sectionSelectCondition = new SectionSelectCondition();
+        //orgName无效
+        if (!orgName.equals("请选择")) {
+            Integer id = organizationService.getIdByOrgName(orgName);
+            sectionSelectCondition.setOrgId(id);
         }
-        else {
-            sectionList = sectionService.getSectionListByOrgIdAndDivName(id,divName);
+        //divName无效
+        if (divName != null && !divName.equals("")) {
+            sectionSelectCondition.setDivName(divName);
         }
-        PageInfo<Section> sectionPageInfo = new PageInfo<>(sectionList);
-        model.addAttribute("sectionPageInfo",sectionPageInfo);
-        model.addAttribute("orgName",orgName);
+        //查询 分页
+        List<SectionEasyView> sectionList;
+//        PageHelper.startPage(page,5);
+        sectionList = sectionService.getSectionConditional(sectionSelectCondition);
+//        PageInfo<Section> sectionPageInfo = new PageInfo<>(sectionList);
+        //写入视图
+//        model.addAttribute("sectionPageInfo",sectionPageInfo);
+//        model.addAttribute("orgName",orgName);
         model.addAttribute("sectionList",sectionList);
+
         return "/part01/content/office-list.html";
     }
 
@@ -92,4 +104,9 @@ public class SectionController {
         sectionService.deleteSectionById(id);
         return "/part01/welcome";
     }
+
+
+
+
+
 }
