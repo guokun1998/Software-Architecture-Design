@@ -1,6 +1,7 @@
 package cn.edu.hrbeu.group15.mapper;
 
 import cn.edu.hrbeu.group15.po.Organization;
+import cn.edu.hrbeu.group15.vo.OrgInformation;
 import org.apache.ibatis.annotations.*;
 
 import javax.websocket.server.ServerEndpoint;
@@ -47,5 +48,16 @@ public interface OrganizationMapper {
             "orgNo = #{orgNo}, orgCode = #{orgCode}, orgName = #{orgName}, exeType = #{exeType}, areaCode = #{areaCode}, linkAdd = #{linkAdd}, listingDate = #{listingDate}, standAloneDate = #{standAloneDate}, areaType = #{areaType}, zbbdocDate = #{zbbdocDate}, orgLevel = #{orgLevel}, orgPro = #{orgPro},  zipCode = #{zipCode} " +
             "WHERE id = #{id}")
     int updateOrganization(Organization organization);
+
+    @Select("<script>" +
+            "SELECT o.orgName orgName, o.zbbdocDate zbbdocDate, o.listingDate listingDate, o.standaloneDate standaloneDate, o.exeType exeType, o.orgPro orgPro, a.zbbNum zbbNum, a.ifPublicManage ifPublicManage, a.onworkerNum onworkerNum, a.retireNum retireNum, a.officeBuildArea officeBuildArea, a.buildingOwnerShip buildingOwnerShip, a.officeBuildingarea officeBuildingarea,  a.businessDivCount businessDivCount, a.funDivCount funDivCount, a.orgCount orgCount " +
+            "FROM  t_d0_organization o " +
+            "left join t_d0_orgattached a " +
+            "on o.id=a.orgId " +
+            "where   1=1 " +
+            "<if test='orgName!=null'> and o.orgName = #{orgName}</if>   " +
+            "<if test='yearLy!=null'>  and a.yearLy=#{yearLy} </if> " +
+            "</script>")
+    List<OrgInformation> getOversignt(String orgName, String yearLy);
 
 }

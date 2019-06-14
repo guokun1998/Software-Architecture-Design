@@ -2,6 +2,7 @@ package cn.edu.hrbeu.group15.service;
 
 import cn.edu.hrbeu.group15.mapper.OrganizationMapper;
 import cn.edu.hrbeu.group15.po.Organization;
+import cn.edu.hrbeu.group15.vo.OrgInformation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -60,6 +61,11 @@ public class OrganizationServiceImpl implements OrganizationService {
     @Override
     public int updateOrganization(Organization organization) {
         return organizationMapper.updateOrganization(organization);
+    }
+
+    @Override
+    public List<OrgInformation> getOversignt(String orgName, String yearLy) {
+        return organizationMapper.getOversignt(orgName, yearLy);
     }
 
 

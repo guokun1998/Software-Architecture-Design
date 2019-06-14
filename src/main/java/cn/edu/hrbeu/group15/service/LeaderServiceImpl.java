@@ -20,7 +20,12 @@ public class LeaderServiceImpl implements LeaderService{
 
 
     @Override
-    public List<Leader> findLeaderByYear(String year) {
-        return leaderMapper.findLeaderByYear(year);
+    public List<Leader> findLeaderByYear(String orgName,String yearLy) {
+        return leaderMapper.findLeaderByYear(orgName, yearLy);
+    }
+
+    @Override
+    public List<Leader> findTatistics(String orgName, String yearLy) {
+        return leaderMapper.findTatistics(orgName, yearLy);
     }
 }

@@ -2,6 +2,7 @@ package cn.edu.hrbeu.group15.service;
 
 import cn.edu.hrbeu.group15.po.Organization;
 import cn.edu.hrbeu.group15.po.Section;
+import cn.edu.hrbeu.group15.vo.OrgInformation;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -31,4 +32,6 @@ public interface OrganizationService {
     Organization getOrgNoAndOrgCodeByOrgName(String orgName);
 
     int updateOrganization(Organization organization);
+
+    List<OrgInformation> getOversignt(String orgName, String yearLy);
 }

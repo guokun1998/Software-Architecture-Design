@@ -12,4 +12,5 @@ import java.util.List;
 @Service
 public interface FundService {
     List<Fund> getFundByOrgId(Integer orgId);
+    List<Fund> getFinacial(String orgName,String yearLy);
 }

@@ -17,18 +17,19 @@
  年度财政拨款情况表</h2>
 </div> 
   <table width="100%" border="0" cellspacing="0" cellpadding="0" class="commonTableSearch">
-       	<form id="form-search" name="form-search" action="" method="post">
+       	<form id="form-search" name="form-search" action="/part01/content/institution/financialReport.html" method="post">
         <tr>
             <th align="right">监督机构：</th>
             <td><select name="orgName" id="select">
+                <option value="请选择" th:text="请选择"></option>
                 <option th:each="orgName:${allOrgName}" th:text="${orgName}">某某监督机构1</option>
 			</select></td>
 			 <th align="right">年份：</th>
-            <td><select name="select" id="select">
-			 <option value="">2019</option>
-			 <option value="">2009</option>
-			 <option value="">2008</option>
-			 <option value="">...</option>
+            <td><select name="yearLy" id="select">
+                <option value="请选择">请选择</option>
+                <option value="2019">2019</option>
+                <option value="2018">2018</option>
+                <option value="2017">2017</option>
 			</select></td>
             <td align="right"><button>检索</button>&nbsp;&nbsp;&nbsp;<button>导出</button></td>
         </tr>
@@ -42,62 +43,13 @@
             <td align="center">业务经费（万元）</td>
             <td align="center">基本建设基金（万元）</td>
        </tr>
-		<tr>
-            <td align="center">南京市卫生监督所</td>
-            <td align="center">2</td>
-            <td align="center">45</td>
-            <td align="center">9</td>
-            <td align="center">11</td>
-       </tr>
-		<tr>
-            <td align="center">鼓楼区卫生监督所</td>
-            <td align="center">3</td>
-            <td align="center">34</td>
-			 <td align="center">45</td>
-            <td align="center">9</td>
-       </tr>
-		<tr>
-            <td align="center">秦淮区卫生监督所</td>
-            <td align="center">4</td>
-            <td align="center">3</td>
-			 <td align="center">34</td>
-            <td align="center">45</td>
-       </tr>
-		<tr>
-            <td align="center">六合区卫生监督所</td>
-            <td align="center">5</td>
-            <td align="center">64</td>
-            <td align="center">5</td>
-            <td align="center">34</td>
-       </tr>
-		<tr>
-            <td align="center">六合区二所卫生监督所</td>
-            <td align="center">6</td>
-            <td align="center">34</td>
-            <td align="center">64</td>
-            <td align="center">5</td>
-       </tr>
-		<tr>
-            <td align="center">......卫生监督所</td>
-            <td align="center">7</td>
-            <td align="center">34</td>
-            <td align="center">54</td>
-            <td align="center">64</td>
-       </tr>
-		<tr>
-            <td align="center">......卫生监督所</td>
-            <td align="center">8</td>
-            <td align="center">54</td>
-            <td align="center">54</td>
-            <td align="center">34</td>
-       </tr>
-		<tr>
-            <td align="center">......卫生监督所</td>
-            <td align="center">9</td>
-            <td align="center">35</td>
-            <td align="center">37</td>
-            <td align="center">36</td>
-       </tr>
+         <tr th:each="fund:${fundList}">
+             <td align="center" th:text="${fund.orgName}">305.26</td>
+             <td align="center" th:text="${fund.preFund}">305.26</td>
+             <td align="center" th:text="${fund.businessFund}">1020.08</td>
+             <td align="center" th:text="${fund.dutyFund}">2089.82</td>
+             <td align="center" th:text="${fund.buildFund}">6122.37</td>
+         </tr>
   </table>
 <!--//content pages wrap-->
 </body>

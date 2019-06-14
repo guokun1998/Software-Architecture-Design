@@ -34,5 +34,10 @@ public class OrgattachedServiceImpl implements OrgattachedService{
         return orgattachedMapper.updateOrgattached(orgattached);
     }
 
+    @Override
+    public List<Orgattached> getEquipment(Orgattached orgattached) {
+        return orgattachedMapper.getEquipment(orgattached);
+    }
+
 
 }

@@ -21,4 +21,9 @@ public class FundServiceImpl implements FundService{
     public List<Fund> getFundByOrgId(Integer orgId) {
         return fundMapper.getFundByOrgId(orgId);
     }
+
+    @Override
+    public List<Fund> getFinacial(String orgName, String yearLy) {
+        return fundMapper.getFinacial(orgName, yearLy);
+    }
 }

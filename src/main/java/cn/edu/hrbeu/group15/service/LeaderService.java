@@ -11,5 +11,7 @@ import java.util.List;
  */
 @Service
 public interface LeaderService {
-    List<Leader> findLeaderByYear(String year);
+    List<Leader> findLeaderByYear(String orgName,String yearLy);
+
+    List<Leader> findTatistics(String orgName,String yearLy);
 }
