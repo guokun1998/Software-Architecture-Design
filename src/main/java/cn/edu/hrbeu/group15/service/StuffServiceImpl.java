@@ -2,6 +2,7 @@ package cn.edu.hrbeu.group15.service;
 
 import cn.edu.hrbeu.group15.mapper.StuffMapper;
 import cn.edu.hrbeu.group15.po.Stuff;
+import cn.edu.hrbeu.group15.vo.StuffComposition;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -51,6 +52,11 @@ public class StuffServiceImpl  implements StuffService{
     @Override
     public int deleteOneStuff(Integer id) {
         return stuffMapper.deleteOneStuff(id);
+    }
+
+    @Override
+    public List<StuffComposition> getStuffComposition(StuffComposition stuffComposition) {
+        return stuffMapper.getStuffComposition(stuffComposition);
     }
 
 

@@ -1,6 +1,7 @@
 package cn.edu.hrbeu.group15.mapper;
 
 import cn.edu.hrbeu.group15.po.Stuff;
+import cn.edu.hrbeu.group15.vo.StuffComposition;
 import org.apache.ibatis.annotations.*;
 import org.omg.PortableInterceptor.INACTIVE;
 
@@ -46,5 +47,34 @@ public interface StuffMapper {
 
     @Delete("delete from t_d0_stuff where id=#{id}")
     int deleteOneStuff(Integer id);
+
+    @Select("<script>" +
+            "SELECT orgName," +
+            "COUNT(CASE WHEN gender='1' THEN 1 END) manNumber, " +
+            "COUNT(CASE WHEN gender='2' THEN 1 END) womenNumber, " +
+            "COUNT(CASE WHEN edu='1' THEN 1 END) doctorNumber ," +
+            "COUNT(CASE WHEN edu='2' THEN 1 END) masterNumber ," +
+            "COUNT(CASE WHEN edu='3' THEN 1 END) undergraduateNumber ," +
+            "COUNT(CASE WHEN edu='4' THEN 1 END) juniorNumber ," +
+            "COUNT(CASE WHEN edu='5' THEN 1 END) secondaryNumber ," +
+            "COUNT(CASE WHEN edu='6' THEN 1 WHEN edu='7' THEN 1 WHEN edu='8' THEN 1 WHEN edu='9' THEN 1 END) lowerMiddleNumber ," +
+            "COUNT(CASE WHEN ROUND(DATEDIFF(CURDATE(),birthdate)/365.2422)&gt;=0 AND ROUND(DATEDIFF(CURDATE(),birthdate)/365.2422)&lt;=25 THEN 1 END) numberLower25," +
+            "COUNT(CASE WHEN ROUND(DATEDIFF(CURDATE(),birthdate)/365.2422)&gt;=26 AND ROUND(DATEDIFF(CURDATE(),birthdate)/365.2422)&lt;=30 THEN 1 END) number26To30," +
+            "COUNT(CASE WHEN ROUND(DATEDIFF(CURDATE(),birthdate)/365.2422)&gt;=31 AND ROUND(DATEDIFF(CURDATE(),birthdate)/365.2422)&lt;=35 THEN 1 END) number31To35," +
+            "COUNT(CASE WHEN ROUND(DATEDIFF(CURDATE(),birthdate)/365.2422)&gt;=36 AND ROUND(DATEDIFF(CURDATE(),birthdate)/365.2422)&lt;=40 THEN 1 END) number36To40," +
+            "COUNT(CASE WHEN ROUND(DATEDIFF(CURDATE(),birthdate)/365.2422)&gt;=41 AND ROUND(DATEDIFF(CURDATE(),birthdate)/365.2422)&lt;=45 THEN 1 END) number41To45," +
+            "COUNT(CASE WHEN ROUND(DATEDIFF(CURDATE(),birthdate)/365.2422)&gt;=46 AND ROUND(DATEDIFF(CURDATE(),birthdate)/365.2422)&lt;=50 THEN 1 END) number46To50," +
+            "COUNT(CASE WHEN ROUND(DATEDIFF(CURDATE(),birthdate)/365.2422)&gt;=51 AND ROUND(DATEDIFF(CURDATE(),birthdate)/365.2422)&lt;=55 THEN 1 END) number51To55," +
+            "COUNT(CASE WHEN ROUND(DATEDIFF(CURDATE(),birthdate)/365.2422)&gt;=56 AND ROUND(DATEDIFF(CURDATE(),birthdate)/365.2422)&lt;=999 THEN 1 END) numberMore56 " +
+            "FROM ( " +
+            "SELECT s.*,o.orgName " +
+            "FROM t_d0_stuff s LEFT JOIN t_d0_organization o " +
+            "ON s.orgId=o.id " +
+            ") stuffPlus " +
+            "where 1=1 " +
+            "<if test='orgName!=null'> and orgName = #{orgName}</if>" +
+            "GROUP BY orgId" +
+            "</script>")
+    List<StuffComposition> getStuffComposition(StuffComposition stuffComposition);
 
 }
