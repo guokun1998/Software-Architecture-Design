@@ -18,6 +18,12 @@ public class StaffTechnicistContoller {
     @Autowired
     private OrganizationServiceImpl organizationService;
 
+    /**
+     * 专业技术人员基本情况表界面
+     * @param model
+     * @param orgId
+     * @return
+     */
     @RequestMapping("/part01/content/member-technicist.html")
     public String staffTechnicistView(Model model, Integer orgId) {
         List<String> allOrgName = organizationService.getAllOrgName();

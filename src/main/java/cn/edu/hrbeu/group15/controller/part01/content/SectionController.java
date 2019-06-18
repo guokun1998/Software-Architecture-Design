@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
+import java.util.Random;
 
 /**
  * @author guokun
@@ -32,6 +33,11 @@ public class SectionController {
     @Autowired
     private OrganizationServiceImpl organizationService;
 
+    /**
+     * 科室列表界面
+     * @param model
+     * @return
+     */
     @RequestMapping("/part01/content/office-list.html")
     public String OfficeView(Model model) {
         List<String> allOrgName = organizationService.getAllOrgName();
@@ -39,6 +45,14 @@ public class SectionController {
         return "/part01/content/office-list.html";
     }
 
+    /**
+     * 科室查询
+     * @param orgName
+     * @param divName
+     * @param page
+     * @param model
+     * @return
+     */
     @RequestMapping("/part01/content/office/list.html")
     public String OfficeListView(@RequestParam(required=true,defaultValue="1",name = "orgName") String orgName,
                                  @RequestParam(required=true,name = "divName") String divName,
@@ -71,33 +85,71 @@ public class SectionController {
         return "/part01/content/office-list.html";
     }
 
+    /**
+     * 科室修改界面
+     * @param id
+     * @param model
+     * @return
+     */
     @RequestMapping("/part01/content/office-edit.html")
     public String OfficeEditView(@RequestParam(required=true,defaultValue="1",name = "id") Integer id,
                                  Model model) {
 
         Section section = sectionService.getSectionById(id);
+        String orgName = organizationService.getOrgNameById(section.getOrgId());
         model.addAttribute("section",section);
+        model.addAttribute("orgName",orgName);
         return "/part01/content/office-edit.html";
     }
 
+    /**
+     * 科室修改方法
+     *
+     * @return
+     */
     @RequestMapping("/part01/content/office/edit.html")
-    public String OfficeEdit(@RequestParam(required=true,defaultValue="1",name = "divName") String divName,
-                             @RequestParam(required=true,defaultValue="1",name = "id") Integer id,
-                                 Model model) {
-
-        Section section = new Section();
-        section.setId(id);
-        section.setDivName(divName);
-        sectionService.updateSectionName(section);
+    public String OfficeEdit(Section section) {
+        sectionService.updateSection(section);
         return "/part01/welcome";
     }
 
+    /**
+     * 科室创建界面
+     * @param model
+     * @return
+     */
     @RequestMapping("/part01/content/office-creat.html")
     public String OfficeCreateView(Model model) {
+        //下拉选项
+        List<String> allOrgName = organizationService.getAllOrgName();
+        model.addAttribute("allOrgName",allOrgName);
+        return "/part01/content/office-creat.html";
+    }
 
+    /**
+     * 科室创建请求/方法
+     * @param model
+     * @return
+     */
+    @RequestMapping("/part01/content/office/creat.html")
+    public String OfficeCreate(String orgName,Section section,Model model) {
 
+        Organization organization = organizationService.getForSectionCreate(orgName);
+        section.setOrgId(organization.getId());
+        section.setOrgNo(organization.getOrgNo());
+        section.setExeType(organization.getExeType());
+        Random random = new Random();
+        section.setDivNameCode(String.valueOf(random.nextInt(99)));
+        sectionService.insertOneSection(section);
         return "/part01/welcome";
     }
+
+    /**
+     * 科室删除方法
+     * @param id
+     * @param model
+     * @return
+     */
     @RequestMapping("/part01/content/office/delete.html")
     public String OfficeDelete(@RequestParam(required=true,name = "id") Integer id,
                                Model model) {

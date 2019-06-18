@@ -56,7 +56,12 @@ public class StuffServiceImpl  implements StuffService{
 
     @Override
     public List<StuffComposition> getStuffComposition(StuffComposition stuffComposition) {
-        return stuffMapper.getStuffComposition(stuffComposition);
+        List<StuffComposition> stuffCompositionList = stuffMapper.getStuffComposition(stuffComposition);
+        for (StuffComposition composition : stuffCompositionList) {
+            composition.setSumJobLevel(composition.getJobLevel1()+composition.getJobLevel2()+composition.getJobLevel3()+composition.getJobLevel4()+composition.getJobLevel5()+composition.getJobLevel6()+composition.getJobLevel7()+composition.getJobLevel8()+composition.getJobLevel9());
+            composition.setSumTitle(composition.getTitle1()+composition.getTitle2()+composition.getTitle3()+composition.getTitle4()+composition.getTitle5());
+        }
+        return stuffCompositionList;
     }
 
 

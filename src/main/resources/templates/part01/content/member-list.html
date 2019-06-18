@@ -117,9 +117,15 @@
             <td align="center" th:if="${stuff.gender=='1'}">男</td>
             <td align="center" th:if="${stuff.gender=='2'}">女</td>
             <!--<td align="left" th:text="${stuff.edu}">本科</td>-->
-            <td align="center" th:if="${stuff.edu=='1'}">本科及以上</td>
-            <td align="center" th:if="${stuff.edu=='2'}">大专</td>
-            <td align="center" th:if="${stuff.edu=='3'}">其他</td>
+            <td align="center" th:if="${stuff.edu=='1'}">博士</td>
+            <td align="center" th:if="${stuff.edu=='2'}">硕士</td>
+            <td align="center" th:if="${stuff.edu=='3'}">本科</td>
+            <td align="center" th:if="${stuff.edu=='4'}">大专</td>
+            <td align="center" th:if="${stuff.edu=='5'}">中专</td>
+            <td align="center" th:if="${stuff.edu=='6'}">高中</td>
+            <td align="center" th:if="${stuff.edu=='7'}">初中</td>
+            <td align="center" th:if="${stuff.edu=='8'}">无学历</td>
+            <td align="center" th:if="${stuff.edu=='9'}">不详</td>
             <!--<td align="center" th:text="${stuff.manageJob}">主任(科长)</td>-->
             <td align="center" th:if="${stuff.manageJob=='1'}">所长</td>
             <td align="center" th:if="${stuff.manageJob=='2'}">书记</td>
@@ -128,10 +134,15 @@
             <td align="center" th:if="${stuff.manageJob=='5'}">主任(科长)</td>
             <td align="center" th:if="${stuff.manageJob=='6'}">副主任(副科长)</td>
             <td align="center" th:if="${stuff.manageJob=='7'}">无</td>
-            <!--<td align="center" th:text="${stuff.jobLevel}">乡科级正职</td>-->
-            <td align="center" th:if="${stuff.jobLevel=='1'}">乡科级正职</td>
-            <td align="center" th:if="${stuff.jobLevel=='2'}">乡科级副级</td>
-            <td align="center" th:if="${stuff.jobLevel=='3'}">普通工作者</td>
+            <td align="center" th:if="${stuff.jobLevel=='1'}">省部级正职</td>
+            <td align="center" th:if="${stuff.jobLevel=='2'}">省部级副职</td>
+            <td align="center" th:if="${stuff.jobLevel=='3'}">厅局级正职</td>
+            <td align="center" th:if="${stuff.jobLevel=='4'}">厅局级副职</td>
+            <td align="center" th:if="${stuff.jobLevel=='5'}">乡科级正职</td>
+            <td align="center" th:if="${stuff.jobLevel=='6'}">乡科级副职</td>
+            <td align="center" th:if="${stuff.jobLevel=='7'}">县处级正职</td>
+            <td align="center" th:if="${stuff.jobLevel=='8'}">县处级副职</td>
+            <td align="center" th:if="${stuff.jobLevel=='9'}">科办员</td>
             <td align="center" th:text="${stuff.choiceSpe}">公共卫生</td>
             <td align="center">
                 <a th:href="@{'/part01/content/member-view.html?id='+${stuff.id}}" class="btnIconView" title="查看详情"></a>

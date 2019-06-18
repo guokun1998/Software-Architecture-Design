@@ -1,4 +1,5 @@
 ﻿<!DOCTYPE html>
+
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -20,7 +21,7 @@
                 <td width="16%" align="right" class="title"><span class="required">*</span>机构代码：</td>
                 <td width="17%" align="left" th:text="${orgattached.orgCode}">23232334-9</td>
                 <td width="16%" class="title" align="right"><span class="required">*</span>机构名称：</td>
-                <td width="17%" align="left" th:text="${orgattached.orgId}">江苏省卫生监督所</td>
+                <td width="17%" align="left" th:text="${orgattached.orgName}">江苏省卫生监督所</td>
 
             </tr>
             <tr>
@@ -60,9 +61,22 @@
             </tr>
             <tr>
                 <td align="right" class="title"><span class="required">*</span>机构行政级别 ：</td>
-                <td align="left" th:text="${organization.orgLevel}">正高级</td>
+                <!-- <td align="left" th:text="${organization.orgLevel}">正高级</td> -->
+                <td width="19%" align="left" th:if="${organization.orgLevel=='1'}">未定级</td>
+                <td width="19%" align="left" th:if="${organization.orgLevel=='2'}">副科级以下</td>
+                <td width="19%" align="left" th:if="${organization.orgLevel=='3'}">副科级</td>
+                <td width="19%" align="left" th:if="${organization.orgLevel=='4'}">科级</td>
+                <td width="19%" align="left" th:if="${organization.orgLevel=='5'}">副处级</td>
+                <td width="19%" align="left" th:if="${organization.orgLevel=='6'}">处级</td>
+                <td width="19%" align="left" th:if="${organization.orgLevel=='7'}">副厅局级</td>
+                <td width="19%" align="left" th:if="${organization.orgLevel=='8'}">厅局级</td>
                 <td align="right" class="title"><span class="required">*</span>机构性质：</td>
-                <td align="left" th:text="${organization.orgPro}">行政机构</td>
+                <!--  <td align="left" th:text="${organization.orgPro}">行政机构</td> -->
+                <td width="19%" align="left" th:if="${organization.orgPro=='1'}">行政机构</td>
+                <td width="19%" align="left" th:if="${organization.orgPro=='2'}">全额拔款事业单位</td>
+                <td width="19%" align="left" th:if="${organization.orgPro=='3'}">差额拔款事业单位</td>
+                <td width="19%" align="left" th:if="${organization.orgPro=='4'}">自收自支事业单位</td>
+                <td width="19%" align="left" th:if="${organization.orgPro=='5'}">其他</td>
                 <td align="right" class="title"><span class="required" >*</span>编制人数 ：</td>
                 <td align="left"  th:text="${orgattached.zbbNum}">120</td>
             </tr>
@@ -79,7 +93,9 @@
             </tr>
             <tr>
                 <td align="right" class="title"><span class="required">*</span>房屋所有权 ：</td>
-                <td align="left" th:text="${orgattached.buildingOwnerShip}">租</td>
+                <td align="left" th:if="${orgattached.buildingOwnerShip=='1'}">自有</td>
+                <td align="left" th:if="${orgattached.buildingOwnerShip=='2'}">借</td>
+                <td align="left" th:if="${orgattached.buildingOwnerShip=='3'}">租</td>
                 <td align="right" class="title"> 办公用房在建面积（平方米） ：</td>
                 <td align="left" th:text="${orgattached.officeBuildingarea}">800</td>
                 <td align="right" class="title"><span class="required">*</span>业务科室数 ：</td>
@@ -129,6 +145,12 @@
                 <td align="left" th:text="${orgattached.faxCount}">10</td>
                 <td align="right" class="title"> <span class="required">*</span>投影仪数 ：</td>
                 <td align="left" th:text="${orgattached.ohpCount}">20</td>
+
+
+            </tr>
+            <tr>
+                <td align="right" class="title"> <span class="required">*</span>录音笔数 ：</td>
+                <td align="left" th:text="${orgattached.vrCount}">20</td>
             </tr>
         </form>
     </table>
@@ -157,17 +179,6 @@
             <th width="20%">基本建设资金（万元）</th>
             <th class="editColS">编辑</th>
         </tr>
-        <!--<tr>-->
-        <!--<td align="center">2010</td>-->
-        <!--<td align="center">305.26</td>-->
-        <!--<td align="center">1020.08</td>-->
-        <!--<td align="center">2089.82</td>-->
-        <!--<td align="center">6122.37</td>-->
-        <!--<td align="center">-->
-        <!--<a href="institution-appropriation-edit.html" class="btnIconEdit" title="更新"></a>-->
-        <!--<a href="#" class="btnIconDel" title="删除"></a>-->
-        <!--</td>-->
-        <!--</tr>-->
         <tr th:each="fund:${fundList}">
             <td align="center" th:text="${fund.yearly}">2010</td>
             <td align="center" th:text="${fund.preFund}">305.26</td>

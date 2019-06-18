@@ -4,10 +4,7 @@ import cn.edu.hrbeu.group15.po.Section;
 import cn.edu.hrbeu.group15.po.Stuff;
 import cn.edu.hrbeu.group15.vo.SectionEasyView;
 import cn.edu.hrbeu.group15.vo.SectionSelectCondition;
-import org.apache.ibatis.annotations.Delete;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Select;
-import org.apache.ibatis.annotations.Update;
+import org.apache.ibatis.annotations.*;
 
 import java.util.List;
 
@@ -48,6 +45,18 @@ public interface SectionMapper {
     @Update("update t_d0_section set divName=#{divName} where id=#{id}")
     int updateSectionName(Section section);
 
+    @Update("update t_d0_section " +
+            "set " +
+            "divCode=#{divCode},divName=#{divName},divCode=#{divCode},ifSub=#{ifSub},dutyTel=#{dutyTel},fax=#{fax},divRoomNo=#{divRoomNo} " +
+            "where id=#{id}")
+    int updateSection(Section section);
+
     @Delete("delete from t_d0_section where id=#{id}")
     int deleteSectionById(Integer id);
+
+    @Insert("insert into t_d0_section " +
+            "(orgId,orgNo,divCode,divNameCode,divName,ifSub,dutyTel,fax,divRoomNo,exeType) " +
+            "values" +
+            "(#{orgId},#{orgNo},#{divCode},#{divNameCode},#{divName},#{ifSub},#{dutyTel},#{fax},#{divRoomNo},#{exeType})")
+    int insertOneSection(Section section);
 }

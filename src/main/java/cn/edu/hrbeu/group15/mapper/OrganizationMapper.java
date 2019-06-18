@@ -24,6 +24,9 @@ public interface OrganizationMapper {
     @Select("select id from t_d0_organization where orgName=#{orgName}")
     Integer getIdByOrgName(String orgName);
 
+    @Select("select id,orgNo,exeType from t_d0_organization where orgName=#{orgName}")
+    Organization getForSectionCreate(String orgName);
+
     @Select("select orgNo,orgCode from t_d0_organization where orgName=#{orgName}")
     Organization getOrgNoAndOrgCodeByOrgName(String orgName);
 

@@ -18,6 +18,12 @@ public class StaffAdministratorsController {
     @Autowired
     private OrganizationServiceImpl organizationService;
 
+    /**
+     * 行政管理人员基本情况表界面
+     * @param model
+     * @param orgId
+     * @return
+     */
     @RequestMapping("/part01/content/member-administrators.html")
     public String staffAdministratorsView(Model model, Integer orgId) {
         List<String> allOrgName = organizationService.getAllOrgName();

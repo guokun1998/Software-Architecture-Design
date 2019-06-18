@@ -27,6 +27,12 @@ public class LeadershipListController {
     @Autowired
     private OrganizationServiceImpl organizationService;
 
+    /**
+     * 所级领导名录管理界面
+     * @param model
+     * @param orgId
+     * @return
+     */
     @RequestMapping("/part01/content/leadership-list.html")
     public String InstitutionView(Model model, Integer orgId) {
         List<String> allOrgName = organizationService.getAllOrgName();
@@ -34,6 +40,13 @@ public class LeadershipListController {
         return "part01/content/leadership-list.html";
     }
 
+    /**
+     * 所级领导名录管理查询
+     * @param model
+     * @param yearLy
+     * @param orgName
+     * @return
+     */
     @RequestMapping("/part01/content/leadership-list/year")
     public String InstitutionViewByYear(Model model, String yearLy,String orgName) {
         List<String> allOrgName = organizationService.getAllOrgName();

@@ -22,6 +22,11 @@ public class InstitutionOversightBodiesController {
     @Autowired
     private OrganizationServiceImpl organizationService;
 
+    /**
+     * 机构监督基本情况表的界面
+     * @param model
+     * @return
+     */
     @RequestMapping("/part01/content/institution-oversightBodies.html")
     public String oversightBodiesView(Model model) {
         List<String> allOrgName = organizationService.getAllOrgName();
@@ -29,6 +34,13 @@ public class InstitutionOversightBodiesController {
         return "/part01/content/institution-oversightBodies.html";
     }
 
+    /**
+     * 机构监督基本情况表的查询
+     * @param orgName
+     * @param yearLy
+     * @param model
+     * @return
+     */
     @RequestMapping("/part01/content/institution/oversightBodies.html")
     public String oversightBodies(@RequestParam(required=true,name = "orgName") String orgName,
                                   @RequestParam(required=true,name = "yearLy") String yearLy,

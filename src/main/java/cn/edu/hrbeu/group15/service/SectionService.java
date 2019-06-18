@@ -32,4 +32,8 @@ public interface SectionService {
     Section getIdAndDivCodeByOrgIdAndDivName(Integer orgId, String divName);
 
     List<SectionEasyView> getSectionConditional(SectionSelectCondition sectionSelectCondition);
+
+    int insertOneSection(Section section);
+
+    int updateSection(Section section);
 }

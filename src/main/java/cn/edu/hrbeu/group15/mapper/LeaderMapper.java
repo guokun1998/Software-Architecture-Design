@@ -14,7 +14,7 @@ import java.util.List;
 public interface LeaderMapper {
 
     @Select("<script> " +
-            "SELECT  orgName, formFillingMan, linkTel, leaderName, gender, folk, birthDate, pol, degree, manageJob, title, yearLy " +
+            "SELECT  orgName, formFillingMan, linkTel, leaderName, gender, folk, birthDate, pol, degree,edu, manageJob, title, yearLy " +
             "from t_d0_leader " +
             "where " +
             "1=1 " +
@@ -25,7 +25,7 @@ public interface LeaderMapper {
 
 
     @Select("<script> " +
-            "SELECT  orgName, leaderName, gender, folk, birthDate, pol, degree,manageJob, degree, title,memo, yearLy " +
+            "SELECT  orgName, leaderName, gender, folk, birthDate, pol, degree,manageJob, edu, title,memo, yearLy " +
             "from t_d0_leader " +
             "where " +
             "1=1 " +

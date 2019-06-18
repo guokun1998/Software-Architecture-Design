@@ -34,4 +34,5 @@ public interface OrganizationService {
     int updateOrganization(Organization organization);
 
     List<OrgInformation> getOversignt(String orgName, String yearLy);
+    Organization getForSectionCreate(String orgName);
 }

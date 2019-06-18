@@ -23,6 +23,12 @@ public class StaffCompositionController {
     @Autowired
     StuffServiceImpl stuffService;
 
+    /**
+     * 人员构成情况表界面
+     * @param model
+     * @param orgId
+     * @return
+     */
     @RequestMapping("/part01/content/staff-composition.html")
     public String staffCompositionReportView(Model model, Integer orgId) {
         List<String> allOrgName = organizationService.getAllOrgName();
@@ -30,6 +36,12 @@ public class StaffCompositionController {
         return "part01/content/staff-composition.html";
     }
 
+    /**
+     * 人员构成情况表查询
+     * @param orgName
+     * @param model
+     * @return
+     */
     @RequestMapping("/part01/content/staff/composition.html")
     public String staffCompositionReport(String orgName,Model model) {
         List<String> allOrgName = organizationService.getAllOrgName();

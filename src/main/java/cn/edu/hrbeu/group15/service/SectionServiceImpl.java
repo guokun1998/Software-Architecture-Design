@@ -60,4 +60,14 @@ public class SectionServiceImpl implements SectionService{
     public List<SectionEasyView> getSectionConditional(SectionSelectCondition sectionSelectCondition) {
         return sectionMapper.getSectionConditional(sectionSelectCondition);
     }
+
+    @Override
+    public int insertOneSection(Section section) {
+        return sectionMapper.insertOneSection(section);
+    }
+
+    @Override
+    public int updateSection(Section section) {
+        return sectionMapper.updateSection(section);
+    }
 }

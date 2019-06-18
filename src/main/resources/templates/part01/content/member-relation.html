@@ -69,13 +69,13 @@
 <script type="text/javascript">
     var orgId = null;
     $("select[id=selectO]").change(function(){
-        orgId = $(this).val();
+        orgName = $(this).val();
         $.ajax({
             type:"POST",
             async:true,  //异步
             dataType:"json",
             url: "/part01/content/member-section.html",    //url地址
-            data:{"orgId":orgId},
+            data:{"orgName":orgName},
             success : function (data) {   //请求成功时的返回函数
                 // var list =  JSON.stringify(data);
                 for (var i = 0; i < data.length; i++) {

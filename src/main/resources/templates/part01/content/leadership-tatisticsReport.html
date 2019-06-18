@@ -56,13 +56,40 @@
         <tr th:each="leader:${leaderList}">
             <td align="center" th:text="${leader.orgName}">南京市卫生监督所</td>
             <td align="center" th:text="${leader.leaderName}">2</td>
-            <td align="center" th:text="${leader.gender}">45</td>
-            <td align="center" th:text="${leader.folk}">9</td>
+
+            <td th:if="${leader.gender=='1'}">男</td>
+            <td th:if="${leader.gender=='2'}">女</td>
+            <td th:if="${leader.folk=='0'}">其他</td>
+            <td th:if="${leader.folk=='1'}">汉</td>
+
             <td align="center" th:text="${#calendars.format(leader.birthDate,'yyyy-MM-dd HH:mm:ss')}">11</td>
-            <td align="center" th:text="${leader.pol}">64</td>
-            <td align="center" th:text="${leader.degree}">2</td>
+
+            <td th:if="${leader.pol=='1'}">中共党员</td>
+            <td th:if="${leader.pol=='2'}">团员</td>
+            <td th:if="${leader.pol=='3'}">民族党派</td>
+            <td th:if="${leader.pol=='4'}">群众</td>
+
+            <td th:text="${leader.degree='1'}"></td>
+
             <td align="center" th:text="${leader.manageJob}">45</td>
-            <td align="center" th:text="${leader.title}">9</td>
+
+            <td th:if="${leader.title=='1'}">初级（医（技）师）</td>
+            <td th:if="${leader.title=='2'}">初级（助理政工师）</td>
+            <td th:if="${leader.title=='3'}">初级（助理工程师）</td>
+            <td th:if="${leader.title=='4'}">初级（助理会计师）</td>
+            <td th:if="${leader.title=='5'}">初级（研究实习员）</td>
+            <td th:if="${leader.title=='6'}">中级（主管（治）医（技）师）</td>
+            <td th:if="${leader.title=='7'}">中级（政工师）</td>
+            <td th:if="${leader.title=='8'}">中级（馆员）</td>
+            <td th:if="${leader.title=='9'}">中级（工程师）</td>
+            <td th:if="${leader.title=='10'}">中级（会计师）</td>
+            <td th:if="${leader.title=='11'}">副高（副主任医（技）师）</td>
+            <td th:if="${leader.title=='12'}">副高（高级政工师）</td>
+            <td th:if="${leader.title=='13'}">副高（高级会计师）</td>
+            <td th:if="${leader.title=='14'}">正高（主任医（技）师）</td>
+            <td th:if="${leader.title=='15'}">未聘任专业技术职务</td>
+            <td th:if="${leader.title=='16'}">无职称</td>
+            <td th:if="${leader.title=='17'}">不详</td>
             <td align="center" th:text="${leader.memo}">11</td>
         </tr>
     </table>

@@ -26,13 +26,13 @@
             </tr>
             <tr>
                 <td align="right"><span class="required">*</span>机构名称：</td>
-                <td align="left"><input name="orgId" type="text" class="inputTextMiddle" id="textfield2" /></td>
+                <td align="left"><input name="orgName" type="text" class="inputTextMiddle" id="textfield2" /></td>
                 <td align="right"><span class="required">*</span>行政类别：</td>
-                <td align="left" colspan="4" >
-                    <input type="radio" name="exeType" id="radio5" value="2" />行政部门
-                    <input type="radio" name="exeType" id="radio6" value="1" />卫生监督机构
-                    <input type="radio" name="exeType" id="radio7" value="3" />协作单位
-                </td>
+                    <td align="left" colspan="4" >
+                        <input type="radio" name="exeType" id="radio5" value="2" />行政部门
+                        <input type="radio" name="exeType" id="radio6" value="1" />卫生监督机构
+                        <input type="radio" name="exeType" id="radio7" value="3" />协作单位
+                    </td>
             </tr>
             <tr>
                 <td align="right">地址：</td>
@@ -68,23 +68,26 @@
                 <td align="right"><span class="required">*</span>机构行政级别 ：</td>
                 <td align="left">
                     <select name="orgLevel" id="select">
-                    <!--<option value="">请选择</option>-->
-                    <option value="1">处级</option>
-                    <option value="2">副处级</option>
-                    <option value="3">科级</option>
-                    <option value="4">副科级</option>
-                    <option value="5">乡级及以下</option>
-                </select></td>
+                        <!--<option value="">请选择</option>-->
+                        <option value="1">未定级</option>
+                        <option value="2">副科级以下</option>
+                        <option value="3">副科级</option>
+                        <option value="4">科级</option>
+                        <option value="5">副处级</option>
+                        <option value="6">处级</option>
+                        <option value="7">副厅局级</option>
+                        <option value="8">厅局级</option>
+                    </select></td>
                 <td align="right"><span class="required">*</span>机构性质：</td>
                 <td align="left">
                     <select name="orgPro" id="select5">
-                    <!--<option value="">请选择</option>-->
-                    <option value="1">行政机构</option>
-                    <option value="2">全额拔款事业单位</option>
-                    <option value="3">差额拔款事业单位</option>
-                    <option value="4">自收自支事业单位</option>
-                    <option value="5">其他</option>
-                </select></td>
+                        <!--<option value="">请选择</option>-->
+                        <option value="1">行政机构</option>
+                        <option value="2">全额拔款事业单位</option>
+                        <option value="3">差额拔款事业单位</option>
+                        <option value="4">自收自支事业单位</option>
+                        <option value="5">其他</option>
+                    </select></td>
                 <td align="right">编办批文日期：</td>
                 <td align="left"><input name="zbbdocDate" type="date" class="inputTextNormal" id="textfield936" /></td>
             </tr>
@@ -106,11 +109,11 @@
                 <td align="right"><span class="required">*</span>房屋所有权 ：</td>
                 <td align="left">
                     <select  id="select">
-                    <!--<option value="">请选择</option>-->
-                    <option name="buildingOwnership" value="0">自有</option>
-                    <option value="1" name="buildingOwnership">借</option>
-                    <option value="2" name="buildingOwnership">租</option>
-                </select></td>
+                        <!--<option value="">请选择</option>-->
+                        <option name="buildingOwnership" value="0">自有</option>
+                        <option value="1" name="buildingOwnership">借</option>
+                        <option value="2" name="buildingOwnership">租</option>
+                    </select></td>
                 <td align="right"> 办公用房在建面积（平方米） ：</td>
                 <td align="left"><input name="officeBuildingarea" type="text" class="inputTextNormal" id="textfield9" /></td>
                 <td align="right"> <span class="required">*</span>办公用房建筑面积（平方米） ：</td>

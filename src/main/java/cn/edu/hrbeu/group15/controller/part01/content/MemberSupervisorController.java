@@ -17,6 +17,12 @@ public class MemberSupervisorController {
     @Autowired
     private OrganizationServiceImpl organizationService;
 
+    /**
+     * 卫生监督员管理信息汇总界面
+     * @param model
+     * @param orgId
+     * @return
+     */
     @RequestMapping("/part01/content/member-supervisor.html")
     public String staffSupervisorView(Model model, Integer orgId) {
         List<String> allOrgName = organizationService.getAllOrgName();

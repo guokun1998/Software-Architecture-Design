@@ -19,8 +19,8 @@
             <tr>
                 <th align="right">监督机构：</th>
                 <td><select name="orgName" id="select">
-                    <option value="请选择" th:text="请选择"></option>
-                    <option th:each="orgName:${allOrgName}" th:text="${orgName}">某某监督机构1</option>
+                    <option value="请选择" "请选择"></option>
+                    <option th:each="orgName:${allOrgName}" "${orgName}">某某监督机构1</option>
                 </select></td>
                 <th align="right">年份：</th>
                 <td><select name="yearLy" id="select">
@@ -59,36 +59,52 @@
             <td th:text="${leader.formFillingMan}">0123456-01</td>
             <td th:text="${leader.linkTel}">江苏省卫生监督所</td>
             <td th:text="${leader.leaderName}">行政部门</td>
-            <td th:text="${leader.gender}">男</td>
-            <td th:text="${leader.folk}">汉</td>
+            <td th:if="${leader.gender=='1'}">男</td>
+            <td th:if="${leader.gender=='2'}">女</td>
+            <td th:if="${leader.folk=='0'}">其他</td>
+            <td th:if="${leader.folk=='1'}">汉</td>
             <td th:text="${#calendars.format(leader.birthDate,'yyyy-MM-dd HH:mm:ss')}">025-83620785</td>
-            <td th:text="${leader.pol}">025-83620785</td>
-            <td th:text="${leader.degree}">501</td>
+
+            <td th:if="${leader.pol=='1'}">中共党员</td>
+            <td th:if="${leader.pol=='2'}">团员</td>
+            <td th:if="${leader.pol=='3'}">民族党派</td>
+            <td th:if="${leader.pol=='4'}">群众</td>
+
+            <td th:if="${leader.edu=='1'}">博士</td>
+            <td th:if="${leader.edu=='2'}">硕士</td>
+            <td th:if="${leader.edu=='3'}">本科</td>
+            <td th:if="${leader.edu=='4'}">大专</td>
+            <td th:if="${leader.edu=='5'}">中专</td>
+            <td th:if="${leader.edu=='6'}">高中</td>
+            <td th:if="${leader.edu=='7'}">初中</td>
+            <td th:if="${leader.edu=='8'}">无学历</td>
+            <td th:if="${leader.edu=='9'}">不详</td>
+
             <td th:text="${leader.manageJob}">501</td>
-            <td th:text="${leader.title}">501</td>
+
+            <td th:if="${leader.title=='1'}">初级（医（技）师）</td>
+            <td th:if="${leader.title=='2'}">初级（助理政工师）</td>
+            <td th:if="${leader.title=='3'}">初级（助理工程师）</td>
+            <td th:if="${leader.title=='4'}">初级（助理会计师）</td>
+            <td th:if="${leader.title=='5'}">初级（研究实习员）</td>
+            <td th:if="${leader.title=='6'}">中级（主管（治）医（技）师）</td>
+            <td th:if="${leader.title=='7'}">中级（政工师）</td>
+            <td th:if="${leader.title=='8'}">中级（馆员）</td>
+            <td th:if="${leader.title=='9'}">中级（工程师）</td>
+            <td th:if="${leader.title=='10'}">中级（会计师）</td>
+            <td th:if="${leader.title=='11'}">副高（副主任医（技）师）</td>
+            <td th:if="${leader.title=='12'}">副高（高级政工师）</td>
+            <td th:if="${leader.title=='13'}">副高（高级会计师）</td>
+            <td th:if="${leader.title=='14'}">正高（主任医（技）师）</td>
+            <td th:if="${leader.title=='15'}">未聘任专业技术职务</td>
+            <td th:if="${leader.title=='16'}">无职称</td>
+            <td th:if="${leader.title=='17'}">不详</td>
             <td>
                 <a href="leadership-view.html" class="btnIconView" title="查看详情"></a>
                 <a href="leadership-creat.html" class="btnIconEdit" title="更新"></a>
                 <a href="#" class="btnIconDel" title="注销"></a>
             </td>
         </tr>
-        <!--<tr align="center">-->
-        <!--<td>0123456-01</td>-->
-        <!--<td>江苏省卫生监督所</td>-->
-        <!--<td>行政部门</td>-->
-        <!--<td>男</td>-->
-        <!--<td>汉</td>-->
-        <!--<td>025-83620785</td>-->
-        <!--<td>025-83620785</td>-->
-        <!--<td>501</td>-->
-        <!--<td>501</td>-->
-        <!--<td>501</td>-->
-        <!--<td>-->
-        <!--<a href="leadership-view.html" class="btnIconView" title="查看详情"></a>-->
-        <!--<a href="leadership-creat.html" class="btnIconEdit" title="更新"></a>-->
-        <!--<a href="#" class="btnIconDel" title="注销"></a>-->
-        <!--</td>-->
-        <!--</tr>-->
 
     </table>
     <!--//commonTable-->

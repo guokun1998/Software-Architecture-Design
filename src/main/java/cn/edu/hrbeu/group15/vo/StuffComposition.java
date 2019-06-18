@@ -22,19 +22,27 @@ public class StuffComposition {
     private Integer number46To50;
     private Integer number51To55;
     private Integer numberMore56;
-
-    public String getOrgName() {
-        return orgName;
-    }
-
-    public void setOrgName(String orgName) {
-        this.orgName = orgName;
-    }
+    private Integer sumJobLevel;
+    private Integer jobLevel1;
+    private Integer jobLevel2;
+    private Integer jobLevel3;
+    private Integer jobLevel4;
+    private Integer jobLevel5;
+    private Integer jobLevel6;
+    private Integer jobLevel7;
+    private Integer jobLevel8;
+    private Integer jobLevel9;
+    private Integer sumTitle;
+    private Integer title1;
+    private Integer title2;
+    private Integer title3;
+    private Integer title4;
+    private Integer title5;
 
     @Override
     public String toString() {
         return "StuffComposition{" +
-                "orgName=" + orgName +
+                "orgName='" + orgName + '\'' +
                 ", manNumber=" + manNumber +
                 ", womenNumber=" + womenNumber +
                 ", doctorNumber=" + doctorNumber +
@@ -51,7 +59,159 @@ public class StuffComposition {
                 ", number46To50=" + number46To50 +
                 ", number51To55=" + number51To55 +
                 ", numberMore56=" + numberMore56 +
+                ", sumJobLevel=" + sumJobLevel +
+                ", jobLevel1=" + jobLevel1 +
+                ", jobLevel2=" + jobLevel2 +
+                ", jobLevel3=" + jobLevel3 +
+                ", jobLevel4=" + jobLevel4 +
+                ", jobLevel5=" + jobLevel5 +
+                ", jobLevel6=" + jobLevel6 +
+                ", jobLevel7=" + jobLevel7 +
+                ", jobLevel8=" + jobLevel8 +
+                ", jobLevel9=" + jobLevel9 +
+                ", sumTitle=" + sumTitle +
+                ", title1=" + title1 +
+                ", title2=" + title2 +
+                ", title3=" + title3 +
+                ", title4=" + title4 +
+                ", title5=" + title5 +
                 '}';
+    }
+
+    public Integer getSumJobLevel() {
+        return sumJobLevel;
+    }
+
+    public void setSumJobLevel(Integer sumJobLevel) {
+        this.sumJobLevel = sumJobLevel;
+    }
+
+    public Integer getJobLevel1() {
+        return jobLevel1;
+    }
+
+    public void setJobLevel1(Integer jobLevel1) {
+        this.jobLevel1 = jobLevel1;
+    }
+
+    public Integer getJobLevel2() {
+        return jobLevel2;
+    }
+
+    public void setJobLevel2(Integer jobLevel2) {
+        this.jobLevel2 = jobLevel2;
+    }
+
+    public Integer getJobLevel3() {
+        return jobLevel3;
+    }
+
+    public void setJobLevel3(Integer jobLevel3) {
+        this.jobLevel3 = jobLevel3;
+    }
+
+    public Integer getJobLevel4() {
+        return jobLevel4;
+    }
+
+    public void setJobLevel4(Integer jobLevel4) {
+        this.jobLevel4 = jobLevel4;
+    }
+
+    public Integer getJobLevel5() {
+        return jobLevel5;
+    }
+
+    public void setJobLevel5(Integer jobLevel5) {
+        this.jobLevel5 = jobLevel5;
+    }
+
+    public Integer getJobLevel6() {
+        return jobLevel6;
+    }
+
+    public void setJobLevel6(Integer jobLevel6) {
+        this.jobLevel6 = jobLevel6;
+    }
+
+    public Integer getJobLevel7() {
+        return jobLevel7;
+    }
+
+    public void setJobLevel7(Integer jobLevel7) {
+        this.jobLevel7 = jobLevel7;
+    }
+
+    public Integer getJobLevel8() {
+        return jobLevel8;
+    }
+
+    public void setJobLevel8(Integer jobLevel8) {
+        this.jobLevel8 = jobLevel8;
+    }
+
+    public Integer getJobLevel9() {
+        return jobLevel9;
+    }
+
+    public void setJobLevel9(Integer jobLevel9) {
+        this.jobLevel9 = jobLevel9;
+    }
+
+    public Integer getSumTitle() {
+        return sumTitle;
+    }
+
+    public void setSumTitle(Integer sumTitle) {
+        this.sumTitle = sumTitle;
+    }
+
+    public Integer getTitle1() {
+        return title1;
+    }
+
+    public void setTitle1(Integer title1) {
+        this.title1 = title1;
+    }
+
+    public Integer getTitle2() {
+        return title2;
+    }
+
+    public void setTitle2(Integer title2) {
+        this.title2 = title2;
+    }
+
+    public Integer getTitle3() {
+        return title3;
+    }
+
+    public void setTitle3(Integer title3) {
+        this.title3 = title3;
+    }
+
+    public Integer getTitle4() {
+        return title4;
+    }
+
+    public void setTitle4(Integer title4) {
+        this.title4 = title4;
+    }
+
+    public Integer getTitle5() {
+        return title5;
+    }
+
+    public void setTitle5(Integer title5) {
+        this.title5 = title5;
+    }
+
+    public String getOrgName() {
+        return orgName;
+    }
+
+    public void setOrgName(String orgName) {
+        this.orgName = orgName;
     }
 
     public Integer getManNumber() {

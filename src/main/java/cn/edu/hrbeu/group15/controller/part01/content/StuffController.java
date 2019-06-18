@@ -34,6 +34,11 @@ public class StuffController {
     @Autowired
     private SectionServiceImpl sectionService;
 
+    /**
+     * 人员列表界面
+     * @param model
+     * @return
+     */
     @RequestMapping("/part01/content/member-list.html")
     public String StuffView(Model model) {
         List<String> allOrgName = organizationService.getAllOrgName();
@@ -43,6 +48,37 @@ public class StuffController {
         return "/part01/content/member-list.html";
     }
 
+    /**
+     * 人员列表查询
+     * @param orgName
+     * @param repManName
+     * @param page
+     * @param model
+     * @return
+     */
+    @RequestMapping("/part01/content/member/list.html")
+    public String StuffListView(@RequestParam(required=true,defaultValue="1",name = "orgName") String orgName,
+                                @RequestParam(required=true,name = "repManName") String repManName,
+                                @RequestParam(required=true,defaultValue="1",name = "page") Integer page,
+                                Model model) {
+        List<String> allOrgName = organizationService.getAllOrgName();
+        model.addAttribute("allOrgName",allOrgName);
+        PageHelper.startPage(page,5);
+        Integer id = organizationService.getIdByOrgName(orgName);
+        List<Stuff> stuffList = stuffService.getStuffListByOrgId(id);
+        PageInfo<Stuff> stuffPageInfo = new PageInfo<>(stuffList);
+        model.addAttribute("stuffPageInfo",stuffPageInfo);
+        model.addAttribute("orgName",orgName);
+        model.addAttribute("stuffList",stuffList);
+        return "/part01/content/member-list.html";
+    }
+
+    /**
+     * 关联科室界面
+     * @param id
+     * @param model
+     * @return
+     */
     @RequestMapping("/part01/content/member-relation.html")
     public String StuffRelationView(@RequestParam(required=true,name = "id") Integer id,
                                     Model model) {
@@ -52,6 +88,14 @@ public class StuffController {
         return "/part01/content/member-relation.html";
     }
 
+    /**
+     * 关联科室方法
+     * @param orgName
+     * @param divName
+     * @param id
+     * @param model
+     * @return
+     */
     @RequestMapping("/part01/content/member/relation.html")
     public String StuffRelation(@RequestParam(required=true,name = "orgName") String orgName,
                                 @RequestParam(required=true,name = "divName") String divName,
@@ -65,6 +109,12 @@ public class StuffController {
         return "/part01/welcome";
     }
 
+    /**
+     * 根据机构名称得到旗下的科室列表
+     * @param orgName
+     * @param model
+     * @return
+     */
     @RequestMapping("/part01/content/member-section.html")
     @ResponseBody
     public List<String> StuffRelationSectionView(@RequestParam(required=true,name = "orgName") String orgName,
@@ -79,7 +129,12 @@ public class StuffController {
     }
 
 
-
+    /**
+     * 人员信息修改界面
+     * @param id
+     * @param model
+     * @return
+     */
     @RequestMapping("/part01/content/member-edit.html")
     public String StuffEditView(@RequestParam(required=true,name = "id") Integer id,
                                 Model model) {
@@ -88,6 +143,12 @@ public class StuffController {
         return "/part01/content/member-edit.html";
     }
 
+    /**
+     * 人员信息修改方法/请求
+     * @param stuff
+     * @param model
+     * @return
+     */
     @RequestMapping("/part01/content/member/edit.html")
     public String StuffEdit(Stuff stuff, Model model) {
         Stuff old = stuffService.getStuffById(stuff.getId());
@@ -102,17 +163,34 @@ public class StuffController {
         return "/part01/welcome";
     }
 
+    /**
+     * 人员创建界面
+     * @param model
+     * @return
+     */
     @RequestMapping("/part01/content/member-creat.html")
     public String StuffCreateView(Model model) {
         return "/part01/content/member-creat.html";
     }
 
+    /**
+     * 人员创建方法/请求
+     * @param stuff
+     * @param model
+     * @return
+     */
     @RequestMapping("/part01/content/member/creat.html")
     public String StuffCreate(Stuff stuff,Model model) {
         stuffService.insertOneStuff(stuff);
         return "/part01/welcome";
     }
 
+    /**
+     * 人员详情
+     * @param id
+     * @param model
+     * @return
+     */
     @RequestMapping("/part01/content/member-view.html")
     public String StuffInformationView(@RequestParam(required=true,name = "id") Integer id,
                                         Model model) {
@@ -121,6 +199,12 @@ public class StuffController {
         return "/part01/content/member-view.html";
     }
 
+    /**
+     * 人员删除方法/请求
+     * @param id
+     * @param model
+     * @return
+     */
     @RequestMapping("/part01/content/member/delete.html")
     public String StuffDelete(@RequestParam(required=true,name = "id") Integer id,
                               Model model) {
@@ -128,20 +212,5 @@ public class StuffController {
         return "/part01/welcome";
     }
 
-    @RequestMapping("/part01/content/member/list.html")
-    public String StuffListView(@RequestParam(required=true,defaultValue="1",name = "orgName") String orgName,
-                                 @RequestParam(required=true,name = "repManName") String repManName,
-                                 @RequestParam(required=true,defaultValue="1",name = "page") Integer page,
-                                 Model model) {
-        List<String> allOrgName = organizationService.getAllOrgName();
-        model.addAttribute("allOrgName",allOrgName);
-        PageHelper.startPage(page,5);
-        Integer id = organizationService.getIdByOrgName(orgName);
-        List<Stuff> stuffList = stuffService.getStuffListByOrgId(id);
-        PageInfo<Stuff> stuffPageInfo = new PageInfo<>(stuffList);
-        model.addAttribute("stuffPageInfo",stuffPageInfo);
-        model.addAttribute("orgName",orgName);
-        model.addAttribute("stuffList",stuffList);
-        return "/part01/content/member-list.html";
-    }
+
 }

@@ -68,5 +68,10 @@ public class OrganizationServiceImpl implements OrganizationService {
         return organizationMapper.getOversignt(orgName, yearLy);
     }
 
+    @Override
+    public Organization getForSectionCreate(String orgName) {
+        return organizationMapper.getForSectionCreate(orgName);
+    }
+
 
 }

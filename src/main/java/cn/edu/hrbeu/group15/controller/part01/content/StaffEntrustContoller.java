@@ -18,6 +18,12 @@ public class StaffEntrustContoller {
     @Autowired
     private OrganizationServiceImpl organizationService;
 
+    /**
+     * 人员授权界面
+     * @param model
+     * @param orgId
+     * @return
+     */
     @RequestMapping("/part01/content/staff-entrust.html")
     public String staffEntrustView(Model model, Integer orgId) {
         List<String> allOrgName = organizationService.getAllOrgName();
@@ -25,6 +31,12 @@ public class StaffEntrustContoller {
         return "part01/content/staff-entrust.html";
     }
 
+    /**
+     * 被授权人确认界面
+     * @param model
+     * @param orgId
+     * @return
+     */
     @RequestMapping("/part01/content/staff-entrust2.html")
     public String staffEntrust2View(Model model, Integer orgId) {
         List<String> allOrgName = organizationService.getAllOrgName();

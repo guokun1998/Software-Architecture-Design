@@ -57,9 +57,10 @@
         </tr>
         <tr th:each="orgInformation:${orgInformationList}">
             <td align="center" th:text="${orgInformation.orgName}">鼓楼区卫生监督所</td>
-            <td align="center" th:text="${orgInformation.zbbdocDate}"></td>
-            <td align="center" th:text="${orgInformation.listingDate}">3</td>
-            <td align="center" th:text="${orgInformation.standAloneDate}">34</td>
+            <td align="center" th:text="${#calendars.format(orgInformation.zbbdocDate,'yyyy-MM-dd HH:mm:ss')}"></td>
+            <td align="center" th:text="${#calendars.format(orgInformation.listingDate,'yyyy-MM-dd HH:mm:ss')}"></td>
+            <td align="center" th:text="${orgInformation.standAloneDate}"></td>
+            <td align="center" th:text="${#calendars.format(orgInformation.standAloneDate,'yyyy-MM-dd HH:mm:ss')}"></td>
             <td align="center" th:text="${orgInformation.orgPro}">45</td>
             <td align="center" th:text="${orgInformation.exeType}">9</td>
             <td align="center" th:text="${orgInformation.zbbNum}">3</td>

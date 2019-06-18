@@ -34,6 +34,22 @@ public class Section {
     
     private String exeType;
 
+    @Override
+    public String toString() {
+        return "Section{" +
+                "id=" + id +
+                ", orgId=" + orgId +
+                ", orgNo='" + orgNo + '\'' +
+                ", divCode='" + divCode + '\'' +
+                ", divNameCode='" + divNameCode + '\'' +
+                ", divName='" + divName + '\'' +
+                ", ifSub='" + ifSub + '\'' +
+                ", dutyTel='" + dutyTel + '\'' +
+                ", fax='" + fax + '\'' +
+                ", divRoomNo='" + divRoomNo + '\'' +
+                ", exeType='" + exeType + '\'' +
+                '}';
+    }
 
     public Integer getId() {
         return id;

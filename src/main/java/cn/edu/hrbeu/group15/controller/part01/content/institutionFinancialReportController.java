@@ -24,6 +24,11 @@ public class institutionFinancialReportController {
     @Autowired
     private FundServiceImpl fundService;
 
+    /**
+     * financialReport视图
+     * @param model
+     * @return
+     */
     @RequestMapping("/part01/content/institution-financialReport.html")
     public String financialView(Model model) {
         List<String> allOrgName = organizationService.getAllOrgName();
@@ -31,6 +36,13 @@ public class institutionFinancialReportController {
         return "/part01/content/institution-financialReport.html";
     }
 
+    /**
+     * 年度财政拨款情况查询
+     * @param orgName
+     * @param yearLy
+     * @param model
+     * @return
+     */
     @RequestMapping("/part01/content/institution/financialReport.html")
     public String financial(@RequestParam(required=true,name = "orgName") String orgName,
                             @RequestParam(required=true,name = "yearLy") String yearLy,

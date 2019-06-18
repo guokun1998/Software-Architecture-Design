@@ -17,6 +17,12 @@ public class UseridListController {
     @Autowired
     private OrganizationServiceImpl organizationService;
 
+    /**
+     * 登录号列表界面
+     * @param model
+     * @param orgId
+     * @return
+     */
     @RequestMapping("/part01/content/userid-list.html")
     public String UseridListView(Model model, Integer orgId) {
         List<String> allOrgName = organizationService.getAllOrgName();

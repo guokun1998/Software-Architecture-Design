@@ -48,6 +48,7 @@ public interface StuffMapper {
     @Delete("delete from t_d0_stuff where id=#{id}")
     int deleteOneStuff(Integer id);
 
+
     @Select("<script>" +
             "SELECT orgName," +
             "COUNT(CASE WHEN gender='1' THEN 1 END) manNumber, " +
@@ -65,7 +66,21 @@ public interface StuffMapper {
             "COUNT(CASE WHEN ROUND(DATEDIFF(CURDATE(),birthdate)/365.2422)&gt;=41 AND ROUND(DATEDIFF(CURDATE(),birthdate)/365.2422)&lt;=45 THEN 1 END) number41To45," +
             "COUNT(CASE WHEN ROUND(DATEDIFF(CURDATE(),birthdate)/365.2422)&gt;=46 AND ROUND(DATEDIFF(CURDATE(),birthdate)/365.2422)&lt;=50 THEN 1 END) number46To50," +
             "COUNT(CASE WHEN ROUND(DATEDIFF(CURDATE(),birthdate)/365.2422)&gt;=51 AND ROUND(DATEDIFF(CURDATE(),birthdate)/365.2422)&lt;=55 THEN 1 END) number51To55," +
-            "COUNT(CASE WHEN ROUND(DATEDIFF(CURDATE(),birthdate)/365.2422)&gt;=56 AND ROUND(DATEDIFF(CURDATE(),birthdate)/365.2422)&lt;=999 THEN 1 END) numberMore56 " +
+            "COUNT(CASE WHEN ROUND(DATEDIFF(CURDATE(),birthdate)/365.2422)&gt;=56 AND ROUND(DATEDIFF(CURDATE(),birthdate)/365.2422)&lt;=999 THEN 1 END) numberMore56, " +
+            "COUNT(CASE WHEN jobLevel='1' THEN 1 END) jobLevel1 ," +
+            "COUNT(CASE WHEN jobLevel='2' THEN 1 END) jobLevel2 ," +
+            "COUNT(CASE WHEN jobLevel='3' THEN 1 END) jobLevel3 ," +
+            "COUNT(CASE WHEN jobLevel='4' THEN 1 END) jobLevel4 ," +
+            "COUNT(CASE WHEN jobLevel='5' THEN 1 END) jobLevel5 ," +
+            "COUNT(CASE WHEN jobLevel='6' THEN 1 END) jobLevel6 ," +
+            "COUNT(CASE WHEN jobLevel='7' THEN 1 END) jobLevel7 ," +
+            "COUNT(CASE WHEN jobLevel='8' THEN 1 END) jobLevel8 ," +
+            "COUNT(CASE WHEN jobLevel='9' THEN 1 END) jobLevel9 ," +
+            "COUNT(CASE WHEN title='14' THEN 1 END) title1 ," +
+            "COUNT(CASE WHEN title='11' THEN 1 WHEN title='12' THEN 1 WHEN title='13' THEN 1 END) title2 ," +
+            "COUNT(CASE WHEN title='6' THEN 1 WHEN title='7' THEN 1 WHEN title='8' THEN 1 WHEN title='9' THEN 1 WHEN title='10' THEN 1 END) title3 ," +
+            "COUNT(CASE WHEN title='1' THEN 1 WHEN title='2' THEN 1 WHEN title='3' THEN 1 WHEN title='4' THEN 1 WHEN title='5' THEN 1 END) title4 ," +
+            "COUNT(CASE WHEN title='15' THEN 1 END) title5 " +
             "FROM ( " +
             "SELECT s.*,o.orgName " +
             "FROM t_d0_stuff s LEFT JOIN t_d0_organization o " +
@@ -76,5 +91,4 @@ public interface StuffMapper {
             "GROUP BY orgId" +
             "</script>")
     List<StuffComposition> getStuffComposition(StuffComposition stuffComposition);
-
 }

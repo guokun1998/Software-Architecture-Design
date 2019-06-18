@@ -23,6 +23,12 @@ public class LeadershipTatisticsReportController {
     @Autowired
     LeaderServiceImpl leaderService;
 
+    /**
+     *所级领导名录管理界面
+     * @param model
+     * @param orgId
+     * @return
+     */
     @RequestMapping("/part01/content/leadership-tatisticsReport.html")
     public String tatisticsReportView(Model model, Integer orgId) {
         List<String> allOrgName = organizationService.getAllOrgName();
@@ -30,6 +36,13 @@ public class LeadershipTatisticsReportController {
         return "part01/content/leadership-tatisticsReport.html";
     }
 
+    /**
+     * 所级领导名录管理查询
+     * @param orgName
+     * @param yearLy
+     * @param model
+     * @return
+     */
     @RequestMapping("/part01/content/leadership/tatisticsReport.html")
     public String tatisticsReport(@RequestParam(required=true,name = "orgName") String orgName,
                                   @RequestParam(required=true,name = "yearLy") String yearLy,

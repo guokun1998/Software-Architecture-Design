@@ -24,6 +24,11 @@ public class InstitutionEquipmentInfoController {
     @Autowired
     private OrgattachedServiceImpl orgattachedService;
 
+    /**
+     * equipmentInfoView视图
+     * @param model
+     * @return
+     */
     @RequestMapping("/part01/content/institution-equipmentInfo.html")
     public String equipmentInfoView(Model model) {
         List<String> allOrgName = organizationService.getAllOrgName();
@@ -31,6 +36,12 @@ public class InstitutionEquipmentInfoController {
         return "/part01/content/institution-equipmentInfo.html";
     }
 
+    /**
+     * 查询仪器设备情况
+     * @param orgName
+     * @param model
+     * @return
+     */
     @RequestMapping("/part01/content/institution/equipmentInfo.html")
     public String equipmentInfo(@RequestParam(required=true,name = "orgName") String orgName,
                                 Model model) {
